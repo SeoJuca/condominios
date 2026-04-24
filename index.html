@@ -53,6 +53,13 @@
   /* ── SCREENS ── */
   .screen { display: none; }
   .screen.active { display: block; }
+  /* Telas públicas nunca crescem além da viewport */
+  #screen-welcome.active,
+  #screen-login-page.active {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
 
   /* ═══════════════════════════════════
      PADRÃO GEOMÉTRICO (do manual)
@@ -63,19 +70,20 @@
   }
 
   /* ═══════════════════════════════════
-     TELA 1A — BEM-VINDO DE VOLTA
+     TELAS PÚBLICAS (welcome + login)
   ═══════════════════════════════════ */
-  .welcome-screen {
-    min-height: 100vh;
-    display: flex;
-    align-items: stretch;
+  .welcome-screen,
+  .login-page-screen {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     background: var(--verde-escuro);
+    position: relative;
   }
 
-  /* layout dois quadrantes */
   .welcome-card {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -85,210 +93,146 @@
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zM28 100L0 84V51l28 17 28-17v33L28 100z' fill='none' stroke='%23ffffff05' stroke-width='1.5'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
 
-  /* Quadrante esquerdo — identidade + ação */
+  /* Quadrante esquerdo */
   .welcome-left {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 52px 64px;
+    padding: 56px 64px;
     position: relative;
     z-index: 1;
     overflow: hidden;
   }
 
   .welcome-logo-circle {
-    width: 100px; height: 100px;
-    background: var(--verde-vivo);
-    border-radius: 50%;
+    width: 88px; height: 88px;
+    background: var(--verde-vivo); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 28px;
-    font-size: 46px;
+    margin-bottom: 28px; font-size: 42px;
     box-shadow: 0 0 0 10px rgba(79,193,75,0.12);
+    flex-shrink: 0;
   }
 
   .welcome-title {
-    font-size: 44px;
-    font-weight: 900;
-    color: white;
-    letter-spacing: -1.5px;
-    margin-bottom: 12px;
-    line-height: 1.1;
+    font-size: 44px; font-weight: 900; color: white;
+    letter-spacing: -1.5px; margin-bottom: 12px; line-height: 1.1;
+    flex-shrink: 0;
   }
   .welcome-title span { color: var(--verde-vivo); }
 
   .welcome-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.42);
-    margin-bottom: 36px;
-    line-height: 1.5;
-    font-weight: 500;
-    max-width: 360px;
+    font-size: 17px; color: rgba(255,255,255,0.42);
+    margin-bottom: 40px; line-height: 1.5; font-weight: 500;
+    max-width: 340px; flex-shrink: 0;
   }
 
   .btn-welcome {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 20px 40px;
-    background: var(--verde-vivo);
-    color: var(--verde-escuro);
-    border: none; border-radius: 16px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900; font-size: 18px;
-    cursor: pointer; letter-spacing: 0.1px;
-    transition: all 0.2s; width: fit-content;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 36px; background: var(--verde-vivo);
+    color: var(--verde-escuro); border: none; border-radius: 14px;
+    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 17px;
+    cursor: pointer; transition: all 0.2s; width: fit-content; flex-shrink: 0;
   }
-  .btn-welcome:hover { background: #5fd45a; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(79,193,75,0.4); }
+  .btn-welcome:hover { background: #5fd45a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79,193,75,0.4); }
 
-  /* Quadrante direito — stats grandes */
+  /* Quadrante direito — stats */
   .welcome-right {
-    width: 44%;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 18px;
-    padding: 72px 52px;
+    width: 42%; flex-shrink: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; gap: 16px;
+    padding: 56px 48px;
     background: rgba(0,0,0,0.2);
     border-left: 1px solid rgba(255,255,255,0.07);
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1; overflow: hidden;
   }
 
   .wstat {
-    display: flex;
-    align-items: center;
-    gap: 22px;
+    display: flex; align-items: center; gap: 20px;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 20px;
-    padding: 26px 30px;
+    border-radius: 18px; padding: 22px 26px; flex-shrink: 0;
   }
   .wstat-icon {
-    width: 68px; height: 68px;
-    background: var(--verde-vivo);
-    border-radius: 18px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 30px;
-    flex-shrink: 0;
+    width: 60px; height: 60px; background: var(--verde-vivo);
+    border-radius: 16px; display: flex; align-items: center;
+    justify-content: center; font-size: 26px; flex-shrink: 0;
   }
   .wstat-info { flex: 1; }
   .wstat-num {
-    font-size: 56px;
-    font-weight: 900;
-    color: white;
-    line-height: 1;
-    margin-bottom: 4px;
-    letter-spacing: -3px;
+    font-size: 50px; font-weight: 900; color: white;
+    line-height: 1; margin-bottom: 4px; letter-spacing: -2px;
   }
-  .wstat-label { font-size: 15px; color: rgba(255,255,255,0.4); font-weight: 600; }
+  .wstat-label { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 600; }
 
-  /* ═══════════════════════════════════
-     TELA 1B — LOGIN
-  ═══════════════════════════════════ */
-  .login-screen {
-    min-height: 100vh;
+  /* ── TELA DE LOGIN (página separada) ── */
+  .login-page-screen {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
-    background: var(--cinza-bg);
   }
-
-  .login-card {
-    background: white;
+  .login-page-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px;
+    position: relative; z-index: 1;
+  }
+  .login-page-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 24px;
-    width: 100%;
-    max-width: 420px;
-    padding: 44px 44px 36px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-    border: 1px solid var(--cinza-borda);
+    padding: 48px 52px;
+    width: 100%; max-width: 440px;
   }
-
-  .login-back {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--cinza-texto);
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 32px;
+  .login-page-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    font-weight: 700; cursor: pointer; margin-bottom: 36px;
     transition: color 0.15s;
   }
-  .login-back:hover { color: var(--verde-primary); }
-
-  .login-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
+  .login-page-back:hover { color: var(--verde-vivo); }
+  .login-page-logo {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
   }
-  .login-header-icon {
-    width: 44px; height: 44px;
-    background: var(--verde-bg);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-    border: 1px solid rgba(79,193,75,0.3);
+  .login-page-logo-icon {
+    width: 48px; height: 48px; background: var(--verde-vivo);
+    border-radius: 14px; display: flex; align-items: center;
+    justify-content: center; font-size: 24px;
   }
-  .login-title { font-size: 20px; font-weight: 800; color: var(--texto); letter-spacing: -0.3px; }
-  .login-sub { font-size: 12px; color: var(--cinza-texto); font-weight: 500; }
-
-  .form-group { margin-bottom: 18px; }
-  .form-label {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--texto-leve);
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    margin-bottom: 7px;
+  .login-page-logo-text { font-size: 18px; font-weight: 900; color: white; line-height: 1.2; }
+  .login-page-logo-text span { color: var(--verde-vivo); }
+  .login-page-logo-sub { font-size: 11px; color: rgba(255,255,255,0.35); font-weight: 600; }
+  .login-page-title { font-size: 26px; font-weight: 900; color: white; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .login-page-sub { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 500; margin-bottom: 32px; }
+  .login-field { margin-bottom: 16px; }
+  .login-field label { display: block; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 8px; }
+  .login-field input {
+    width: 100%; padding: 14px 16px;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 12px; color: white;
+    font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 500;
+    outline: none; box-sizing: border-box; transition: border-color 0.2s;
   }
-  .form-input {
-    width: 100%;
-    padding: 13px 15px;
-    border: 1.5px solid var(--cinza-borda);
-    border-radius: 10px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--texto);
-    background: var(--off-white);
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .form-input:focus { border-color: var(--verde-primary); box-shadow: 0 0 0 3px rgba(0,98,40,0.1); background: white; }
-  .form-input::placeholder { color: #BCC5BA; }
-
-  .btn-login {
-    width: 100%;
-    padding: 14px;
-    background: var(--verde-primary);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 4px;
-    transition: background 0.2s, transform 0.1s;
+  .login-field input:focus { border-color: var(--verde-vivo); }
+  .login-field input::placeholder { color: rgba(255,255,255,0.2); }
+  .btn-entrar {
+    width: 100%; padding: 16px;
+    background: var(--verde-vivo); color: var(--verde-escuro);
+    border: none; border-radius: 12px;
+    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 16px;
+    cursor: pointer; margin-top: 8px;
     display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: all 0.2s; box-sizing: border-box;
   }
-  .btn-login:hover { background: var(--verde-escuro); transform: translateY(-1px); }
-
-  .login-footer {
-    margin-top: 20px;
-    font-size: 11px;
-    color: var(--cinza-texto);
-    text-align: center;
-    line-height: 1.5;
-    font-weight: 500;
+  .btn-entrar:hover { background: #5fd45a; transform: translateY(-1px); }
+  .login-page-footer {
+    margin-top: 20px; font-size: 11px;
+    color: rgba(255,255,255,0.22); text-align: center;
+    font-weight: 500; line-height: 1.5;
   }
 
   /* ═══════════════════════════════════
@@ -728,56 +672,24 @@
 
 
 <!-- ════════════════════════════════════════
-     TELA 1A — BEM-VINDO DE VOLTA
+     TELA 1 — BEM-VINDO DE VOLTA
 ════════════════════════════════════════ -->
 <div id="screen-welcome" class="screen active welcome-screen">
   <div class="welcome-card">
     <div class="welcome-pattern"></div>
 
-    <!-- Quadrante esquerdo: identidade + ação -->
+    <!-- Esquerdo: identidade + botão -->
     <div class="welcome-left">
       <div class="welcome-logo-circle">🛒</div>
       <div class="welcome-title">Bem-vindo<br>de volta ao<br><span>Seo Juca</span></div>
       <div class="welcome-sub">Sua plataforma de indicações de Locais</div>
-
-      <!-- Área de ação: troca entre botão e form sem crescer a página -->
-      <div style="position:relative; min-height:60px;">
-
-        <!-- Estado 1: botão de acesso -->
-        <div id="btn-acesso">
-          <button class="btn-welcome" onclick="showLoginForm()">
-            Acessar minha conta →
-          </button>
-        </div>
-
-        <!-- Estado 2: formulário inline, sem scroll -->
-        <div id="login-form-area" style="display:none; max-width:400px;">
-          <div style="font-size:10px;color:rgba(255,255,255,0.35);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px;">Suas credenciais de acesso</div>
-          <div style="margin-bottom:12px;">
-            <label style="display:block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.6px;text-transform:uppercase;margin-bottom:7px;">E-mail</label>
-            <input type="email" placeholder="seu@email.com.br" value="ricardo@franqueado.com"
-              style="width:100%;padding:13px 15px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.14);border-radius:12px;color:white;font-family:'Nunito',sans-serif;font-size:14px;font-weight:500;outline:none;box-sizing:border-box;">
-          </div>
-          <div style="margin-bottom:20px;">
-            <label style="display:block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.6px;text-transform:uppercase;margin-bottom:7px;">Senha</label>
-            <input type="password" placeholder="••••••••" value="12345678"
-              style="width:100%;padding:13px 15px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.14);border-radius:12px;color:white;font-family:'Nunito',sans-serif;font-size:14px;font-weight:500;outline:none;box-sizing:border-box;">
-          </div>
-          <button onclick="go('dashboard')"
-            style="width:100%;padding:15px;background:var(--verde-vivo);color:var(--verde-escuro);border:none;border-radius:14px;font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;">
-            Entrar no sistema →
-          </button>
-          <div style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;">
-            <span onclick="hideLoginForm()" style="font-size:12px;color:rgba(255,255,255,0.35);cursor:pointer;font-weight:700;">← Voltar</span>
-            <span style="font-size:11px;color:rgba(255,255,255,0.22);font-weight:500;">Problemas? Fale com a franqueadora</span>
-          </div>
-        </div>
-
-      </div>
+      <button class="btn-welcome" onclick="go('login-page')">
+        Acessar minha conta →
+      </button>
     </div>
 
-    <!-- Quadrante direito: stats grandes -->
-    <div class="welcome-right" id="welcome-stats-panel">
+    <!-- Direito: stats grandes -->
+    <div class="welcome-right">
       <div class="wstat">
         <div class="wstat-icon">🏢</div>
         <div class="wstat-info">
@@ -800,11 +712,50 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- tela login removida — form embutido na welcome -->
+<!-- ════════════════════════════════════════
+     TELA 2 — LOGIN (página separada, sem scroll)
+════════════════════════════════════════ -->
+<div id="screen-login-page" class="screen login-page-screen">
+  <div class="welcome-pattern"></div>
+  <div class="login-page-inner">
+    <div class="login-page-card">
+
+      <div class="login-page-back" onclick="go('welcome')">← Voltar</div>
+
+      <div class="login-page-logo">
+        <div class="login-page-logo-icon">🛒</div>
+        <div>
+          <div class="login-page-logo-text">mercadinho <span>do seo juca</span></div>
+          <div class="login-page-logo-sub">SISTEMA DE INDICAÇÕES</div>
+        </div>
+      </div>
+
+      <div class="login-page-title">Entrar na conta</div>
+      <div class="login-page-sub">Use as credenciais fornecidas pela franqueadora</div>
+
+      <div class="login-field">
+        <label>E-mail</label>
+        <input type="email" placeholder="seu@email.com.br" value="ricardo@franqueado.com">
+      </div>
+      <div class="login-field">
+        <label>Senha</label>
+        <input type="password" placeholder="••••••••" value="12345678">
+      </div>
+
+      <button class="btn-entrar" onclick="go('dashboard')">
+        Entrar no sistema →
+      </button>
+
+      <div class="login-page-footer">
+        Problemas com o acesso? Entre em contato com a franqueadora.
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ════════════════════════════════════════
      TELA 2 — DASHBOARD
@@ -1382,25 +1333,27 @@
 </div>
 
 <script>
+  const PUBLIC = ['welcome', 'login-page'];
+
   function go(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     const el = document.getElementById('screen-' + id);
     if (el) el.classList.add('active');
-    // Destacar item ativo na sidebar
+    // Sidebar: destacar item ativo
     document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
     document.querySelectorAll('.sb-item[data-screen="' + id + '"]').forEach(i => i.classList.add('active'));
+    // Telas públicas: sem scroll de forma alguma
+    if (PUBLIC.includes(id)) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
     window.scrollTo(0, 0);
   }
+  // Inicializar em modo público
+  document.body.style.overflow = 'hidden';
 
-  function showLoginForm() {
-    document.getElementById('login-form-area').style.display = 'block';
-    document.getElementById('btn-acesso').style.display = 'none';
-  }
-
-  function hideLoginForm() {
-    document.getElementById('login-form-area').style.display = 'none';
-    document.getElementById('btn-acesso').style.display = 'block';
-  }
+  // login form gerenciado via go()
 
   // Tipo selector
   document.querySelectorAll('.tipo-opt').forEach(opt => {
