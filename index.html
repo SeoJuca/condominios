@@ -60,6 +60,8 @@
     z-index: 100;
     border-bottom: 1px solid rgba(255,255,255,0.07);
   }
+  /* Esconde nav nas telas públicas */
+  body.public-screen .nav-tabs { display: none; }
   .nav-brand {
     display: flex;
     align-items: center;
@@ -127,7 +129,7 @@
      TELA 1A — BEM-VINDO DE VOLTA
   ═══════════════════════════════════ */
   .welcome-screen {
-    min-height: calc(100vh - 47px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,84 +157,94 @@
   .welcome-body {
     position: relative;
     z-index: 1;
-    padding: 52px 48px 40px;
+    padding: 60px 52px 48px;
     text-align: center;
   }
 
   .welcome-logo-circle {
-    width: 72px; height: 72px;
+    width: 88px; height: 88px;
     background: var(--verde-vivo);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 36px;
-    box-shadow: 0 0 0 8px rgba(79,193,75,0.15);
+    margin: 0 auto 24px;
+    font-size: 44px;
+    box-shadow: 0 0 0 10px rgba(79,193,75,0.15);
   }
 
   .welcome-title {
-    font-size: 28px;
-    font-weight: 800;
+    font-size: 38px;
+    font-weight: 900;
     color: white;
-    letter-spacing: -0.5px;
-    margin-bottom: 8px;
-    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    line-height: 1.15;
   }
   .welcome-title span { color: var(--verde-vivo); }
 
   .welcome-sub {
-    font-size: 14px;
+    font-size: 17px;
     color: rgba(255,255,255,0.5);
-    margin-bottom: 36px;
-    line-height: 1.5;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-weight: 500;
   }
 
   .welcome-stats {
     display: flex;
-    gap: 0;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    margin-bottom: 36px;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
   }
   .wstat {
-    flex: 1;
-    padding: 16px 12px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-align: left;
   }
-  .wstat:last-child { border-right: none; }
+  .wstat-icon {
+    width: 44px; height: 44px;
+    background: var(--verde-vivo);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .wstat-info { flex: 1; }
   .wstat-num {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--verde-vivo);
+    font-size: 28px;
+    font-weight: 900;
+    color: white;
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
-  .wstat-label { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 0.3px; }
+  .wstat-label { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 600; }
 
   .btn-welcome {
     width: 100%;
-    padding: 16px;
+    padding: 18px;
     background: var(--verde-vivo);
     color: var(--verde-escuro);
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
+    font-weight: 900;
+    font-size: 17px;
     cursor: pointer;
     letter-spacing: 0.2px;
     transition: all 0.2s;
     display: flex; align-items: center; justify-content: center; gap: 8px;
   }
-  .btn-welcome:hover { background: #5fd45a; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(79,193,75,0.4); }
+  .btn-welcome:hover { background: #5fd45a; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(79,193,75,0.45); }
 
   /* ═══════════════════════════════════
      TELA 1B — LOGIN
   ═══════════════════════════════════ */
   .login-screen {
-    min-height: calc(100vh - 47px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -780,58 +792,59 @@
 
       <div class="welcome-stats">
         <div class="wstat">
-          <div class="wstat-num">247</div>
-          <div class="wstat-label">Indicações<br>este mês</div>
+          <div class="wstat-icon">🏢</div>
+          <div class="wstat-info">
+            <div class="wstat-num">247</div>
+            <div class="wstat-label">Indicações este mês</div>
+          </div>
         </div>
         <div class="wstat">
-          <div class="wstat-num">38</div>
-          <div class="wstat-label">Fechamentos<br>no ano</div>
+          <div class="wstat-icon">✅</div>
+          <div class="wstat-info">
+            <div class="wstat-num">38</div>
+            <div class="wstat-label">Fechamentos no ano</div>
+          </div>
         </div>
         <div class="wstat">
-          <div class="wstat-num">12</div>
-          <div class="wstat-label">Locais<br>disponíveis</div>
+          <div class="wstat-icon">🌱</div>
+          <div class="wstat-info">
+            <div class="wstat-num">12</div>
+            <div class="wstat-label">Locais disponíveis agora</div>
+          </div>
         </div>
       </div>
 
-      <button class="btn-welcome" onclick="go('login')">
+      <button class="btn-welcome" onclick="showLoginForm()">
         Acessar minha conta →
       </button>
-    </div>
-  </div>
-</div>
 
-<!-- ════════════════════════════════════════
-     TELA 1B — LOGIN
-════════════════════════════════════════ -->
-<div id="screen-login" class="screen login-screen">
-  <div class="login-card">
-    <div class="login-back" onclick="go('welcome')">← Voltar</div>
-    <div class="login-header">
-      <div class="login-header-icon">🔐</div>
-      <div>
-        <div class="login-title">Entrar na conta</div>
-        <div class="login-sub">Use as credenciais fornecidas pela franqueadora</div>
+      <!-- Formulário escondido, aparece ao clicar -->
+      <div id="login-form-area" style="display:none; margin-top:20px; text-align:left;">
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top:20px; margin-bottom:20px;"></div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);font-weight:600;text-align:center;margin-bottom:20px;letter-spacing:0.5px;text-transform:uppercase;">Suas credenciais de acesso</div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label class="form-label" style="color:rgba(255,255,255,0.5);">E-mail</label>
+          <input class="form-input" type="email" placeholder="seu@email.com.br" value="ricardo@franqueado.com" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12);color:white;">
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label class="form-label" style="color:rgba(255,255,255,0.5);">Senha</label>
+          <input class="form-input" type="password" placeholder="••••••••" value="12345678" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12);color:white;">
+        </div>
+        <button class="btn-login" onclick="go('dashboard')" style="background:white;color:var(--verde-escuro);font-weight:900;border-radius:12px;padding:15px;font-size:15px;width:100%;border:none;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">
+          Entrar no sistema →
+        </button>
+        <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.3);text-align:center;line-height:1.5;font-weight:500;">
+          Problemas com o acesso? Entre em contato<br>com a franqueadora para redefinir suas credenciais.
+        </div>
+        <div style="text-align:center;margin-top:14px;">
+          <span onclick="hideLoginForm()" style="font-size:12px;color:rgba(255,255,255,0.35);cursor:pointer;font-weight:600;">← Voltar</span>
+        </div>
       </div>
     </div>
-
-    <div class="form-group">
-      <label class="form-label">E-mail</label>
-      <input class="form-input" type="email" placeholder="seu@email.com.br" value="ricardo@franqueado.com">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Senha</label>
-      <input class="form-input" type="password" placeholder="••••••••" value="12345678">
-    </div>
-
-    <button class="btn-login" onclick="go('dashboard')">
-      Entrar no sistema →
-    </button>
-
-    <div class="login-footer">
-      Problemas com o acesso? Entre em contato<br>com a franqueadora para redefinir suas credenciais.
-    </div>
   </div>
 </div>
+
+<!-- tela login removida — form embutido na welcome -->
 
 <!-- ════════════════════════════════════════
      TELA 2 — DASHBOARD
@@ -1360,14 +1373,14 @@
 <script>
   const screens = {
     'welcome':      0,
-    'login':        1,
-    'dashboard':    2,
-    'kanban':       3,
-    'lista':        4,
-    'locais-cards': 5,
-    'locais-mapa':  6,
-    'nova':         7
+    'dashboard':    1,
+    'kanban':       2,
+    'lista':        3,
+    'locais-cards': 4,
+    'locais-mapa':  5,
+    'nova':         6
   };
+  const publicScreens = ['welcome'];
 
   function go(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -1375,7 +1388,31 @@
     document.getElementById('screen-' + id).classList.add('active');
     const tabs = document.querySelectorAll('.nav-tab');
     if (tabs[screens[id]]) tabs[screens[id]].classList.add('active');
+    // Esconder nav nas telas públicas
+    const nav = document.querySelector('.nav-tabs');
+    if (publicScreens.includes(id)) {
+      nav.style.display = 'none';
+    } else {
+      nav.style.display = 'flex';
+    }
     window.scrollTo(0, 0);
+  }
+  // Inicializar escondendo o nav
+  document.querySelector('.nav-tabs').style.display = 'none';
+
+  function showLoginForm() {
+    const form = document.getElementById('login-form-area');
+    const stats = document.querySelector('.welcome-stats');
+    form.style.display = 'block';
+    stats.style.display = 'none';
+    form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function hideLoginForm() {
+    const form = document.getElementById('login-form-area');
+    const stats = document.querySelector('.welcome-stats');
+    form.style.display = 'none';
+    stats.style.display = 'flex';
   }
 
   // Tipo selector
