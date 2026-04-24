@@ -1,1 +1,1610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seo Juca — Indicações</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2D7A3A;
+    --verde-escuro: #1B5226;
+    --verde-claro: #4CAF5E;
+    --verde-bg: #EAF5EC;
+    --amarelo: #F5C842;
+    --amarelo-escuro: #C9A010;
+    --branco: #FAFAF8;
+    --cinza-bg: #F3F2EE;
+    --cinza-borda: #E0DED8;
+    --cinza-texto: #8A8880;
+    --texto: #1A1A18;
+    --texto-leve: #4A4A48;
+    --azul-pipe: #2563EB;
+    --roxo-pipe: #7C3AED;
+    --laranja-pipe: #EA580C;
+    --pipeline-1: #6B7280;
+    --pipeline-2: #2563EB;
+    --pipeline-3: #0891B2;
+    --pipeline-4: #059669;
+    --pipeline-5: #7C3AED;
+    --pipeline-6: #EA580C;
+    --pipeline-7: #16A34A;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cinza-bg);
+    color: var(--texto);
+    min-height: 100vh;
+  }
+
+  /* ── NAV TABS ── */
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--verde-escuro);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-tab:hover { color: rgba(255,255,255,0.9); }
+  .nav-tab.active { color: var(--amarelo); border-bottom-color: var(--amarelo); }
+  .nav-brand {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: white;
+    padding: 14px 20px 14px 0;
+    margin-right: 12px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    letter-spacing: -0.3px;
+  }
+  .nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+  }
+  .nav-avatar {
+    width: 28px; height: 28px;
+    background: var(--amarelo);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--verde-escuro);
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ═══════════════════════════════════
+     TELA 1 — LOGIN
+  ═══════════════════════════════════ */
+  .login-screen {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .login-left {
+    background: var(--verde-escuro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .login-left::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
+    top: -80px; right: -80px;
+    border-radius: 50%;
+  }
+  .login-left::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(76,175,94,0.15) 0%, transparent 70%);
+    bottom: -60px; left: -60px;
+    border-radius: 50%;
+  }
+  .login-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .login-logo span { color: var(--amarelo); }
+  .login-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+  .login-ilustracao {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .login-stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .login-stat-icon {
+    width: 36px; height: 36px;
+    background: var(--amarelo);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .login-stat-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+  }
+  .login-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .login-right {
+    background: var(--branco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 72px;
+  }
+  .login-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--texto);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .login-sub {
+    font-size: 14px;
+    color: var(--cinza-texto);
+    margin-bottom: 36px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--texto-leve);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--cinza-borda);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--texto);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--verde); }
+  .form-input::placeholder { color: #C5C3BE; }
+  .btn-login {
+    width: 100%;
+    padding: 15px;
+    background: var(--verde);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+  .btn-login:hover { background: var(--verde-escuro); }
+  .login-footer {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--cinza-texto);
+    text-align: center;
+  }
+
+  /* ═══════════════════════════════════
+     TELA 2 — DASHBOARD FRANQUEADO
+  ═══════════════════════════════════ */
+  .dash-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: calc(100vh - 47px);
+  }
+  .sidebar {
+    background: white;
+    border-right: 1px solid var(--cinza-borda);
+    padding: 24px 0;
+    position: sticky;
+    top: 47px;
+    height: calc(100vh - 47px);
+    overflow-y: auto;
+  }
+  .sidebar-section {
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--cinza-texto);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 8px;
+    margin-bottom: 6px;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--texto-leve);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 400;
+  }
+  .sidebar-item:hover { background: var(--cinza-bg); color: var(--texto); }
+  .sidebar-item.active { background: var(--verde-bg); color: var(--verde); font-weight: 500; }
+  .sidebar-item .icon { font-size: 16px; width: 20px; text-align: center; }
+  .sidebar-badge {
+    margin-left: auto;
+    background: var(--verde);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+  .sidebar-franquias {
+    margin: 0 16px 0;
+    background: var(--verde-bg);
+    border: 1px solid rgba(45,122,58,0.2);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .sf-label { font-size: 11px; color: var(--verde); font-weight: 500; margin-bottom: 4px; }
+  .sf-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--verde-escuro);
+    line-height: 1;
+  }
+  .sf-sub { font-size: 11px; color: var(--cinza-texto); margin-top: 2px; }
+
+  .main-content { padding: 28px 32px; }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .page-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.4px;
+  }
+  .page-subtitle { font-size: 13px; color: var(--cinza-texto); margin-top: 3px; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    background: var(--verde);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--verde-escuro); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 16px;
+    background: white;
+    color: var(--texto-leve);
+    border: 1.5px solid var(--cinza-borda);
+    border-radius: 9px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--verde); color: var(--verde); }
+
+  /* Stats cards */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--cinza-borda);
+  }
+  .stat-card-label { font-size: 12px; color: var(--cinza-texto); font-weight: 500; margin-bottom: 10px; }
+  .stat-card-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--texto);
+    line-height: 1;
+  }
+  .stat-card-sub { font-size: 12px; color: var(--cinza-texto); margin-top: 6px; }
+  .stat-card-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  /* ── Pipeline Kanban ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .view-toggle {
+    display: flex;
+    gap: 4px;
+    background: var(--cinza-bg);
+    padding: 4px;
+    border-radius: 8px;
+  }
+  .vt-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--cinza-texto);
+    transition: all 0.15s;
+  }
+  .vt-btn.active {
+    background: white;
+    color: var(--texto);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  .kanban-scroll {
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  .kanban-board {
+    display: flex;
+    gap: 12px;
+    min-width: max-content;
+  }
+  .kanban-col {
+    width: 220px;
+    flex-shrink: 0;
+  }
+  .kanban-col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0;
+  }
+  .kanban-col-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .kanban-col-name {
+    font-size: 12px;
+    font-weight: 600;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .kanban-count {
+    font-size: 11px;
+    background: rgba(0,0,0,0.08);
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .kanban-cards {
+    background: var(--cinza-bg);
+    border-radius: 0 0 10px 10px;
+    padding: 10px 8px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .kcard {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--cinza-borda);
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .kcard:hover { box-shadow: var(--shadow); border-color: #C8C6C0; transform: translateY(-1px); }
+  .kcard-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .tipo-cond { background: #EAF5EC; color: var(--verde); }
+  .tipo-emp { background: #EEF2FF; color: #4338CA; }
+  .tipo-acad { background: #FFF7ED; color: #C2410C; }
+  .kcard-name {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--texto);
+  }
+  .kcard-local {
+    font-size: 12px;
+    color: var(--cinza-texto);
+    margin-bottom: 10px;
+  }
+  .kcard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--cinza-texto);
+  }
+  .kcard-origem {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .origem-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+  }
+
+  /* ═══════════════════════════════════
+     TELA 3 — LOCAIS DISPONÍVEIS
+  ═══════════════════════════════════ */
+  .filtros-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filtro-chip {
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--cinza-borda);
+    background: white;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--texto-leve);
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .filtro-chip:hover { border-color: var(--verde); color: var(--verde); }
+  .filtro-chip.active { background: var(--verde); color: white; border-color: var(--verde); }
+
+  .locais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .local-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--cinza-borda);
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .local-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .local-card.bloqueado { opacity: 0.65; }
+  .local-card-header {
+    padding: 18px 18px 12px;
+    border-bottom: 1px solid var(--cinza-borda);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .local-tipo-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .local-card-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--texto);
+    margin: 10px 0 4px;
+    padding: 0 18px;
+  }
+  .local-card-endereco {
+    font-size: 12px;
+    color: var(--cinza-texto);
+    padding: 0 18px 14px;
+  }
+  .local-card-info {
+    display: flex;
+    gap: 16px;
+    padding: 12px 18px;
+    background: var(--cinza-bg);
+    border-top: 1px solid var(--cinza-borda);
+  }
+  .lci-item { font-size: 12px; }
+  .lci-label { color: var(--cinza-texto); margin-bottom: 2px; }
+  .lci-val { font-weight: 500; color: var(--texto); }
+  .local-card-footer {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-absorver {
+    flex: 1;
+    padding: 10px;
+    background: var(--verde);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-absorver:hover { background: var(--verde-escuro); }
+  .btn-absorver.disabled {
+    background: var(--cinza-bg);
+    color: var(--cinza-texto);
+    cursor: not-allowed;
+    border: 1px solid var(--cinza-borda);
+  }
+  .btn-absorver.disabled:hover { background: var(--cinza-bg); }
+
+  /* ═══════════════════════════════════
+     TELA 4 — NOVA INDICAÇÃO
+  ═══════════════════════════════════ */
+  .form-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--cinza-borda);
+    padding: 32px;
+    max-width: 640px;
+  }
+  .form-section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--verde);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--verde-bg);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group-mb { margin-bottom: 16px; }
+  .tipo-selector {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .tipo-opt {
+    padding: 10px 8px;
+    border: 1.5px solid var(--cinza-borda);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 12px;
+    color: var(--texto-leve);
+  }
+  .tipo-opt:hover { border-color: var(--verde); }
+  .tipo-opt.selected { border-color: var(--verde); background: var(--verde-bg); color: var(--verde); font-weight: 500; }
+  .tipo-opt-icon { font-size: 20px; margin-bottom: 4px; }
+  .campo-extra {
+    background: var(--verde-bg);
+    border: 1px solid rgba(45,122,58,0.2);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--verde-escuro);
+  }
+  .campo-extra strong { display: block; margin-bottom: 10px; }
+  .btn-row { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+
+  /* ═══════════════════════════════════
+     TELA 5 — PIPELINE LISTA
+  ═══════════════════════════════════ */
+  .lista-table {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--cinza-borda);
+    overflow: hidden;
+  }
+  .lista-thead {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1.5fr 1fr 80px;
+    gap: 0;
+    padding: 12px 20px;
+    background: var(--cinza-bg);
+    border-bottom: 1px solid var(--cinza-borda);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--cinza-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .lista-row {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1.5fr 1fr 80px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--cinza-borda);
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .lista-row:last-child { border-bottom: none; }
+  .lista-row:hover { background: var(--cinza-bg); }
+  .lista-row-name { font-weight: 500; }
+  .lista-row-sub { font-size: 12px; color: var(--cinza-texto); }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  /* Mapa placeholder */
+  .mapa-placeholder {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--cinza-borda);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--cinza-texto);
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mapa-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--cinza-borda) 1px, transparent 1px),
+      linear-gradient(90deg, var(--cinza-borda) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+  .mapa-pins {
+    position: absolute;
+    inset: 0;
+  }
+  .mapa-pin {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  .mapa-pin-bubble {
+    background: var(--verde);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .mapa-pin-bubble.amarelo { background: var(--amarelo-escuro); }
+  .mapa-pin::after {
+    content: '';
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid var(--verde);
+  }
+  .mapa-pin.amarelo::after { border-top-color: var(--amarelo-escuro); }
+  .mapa-overlay-label {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--cinza-borda);
+    font-size: 13px;
+    color: var(--texto-leve);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV TABS (controle das telas) ── -->
+<div class="nav-tabs">
+  <div class="nav-brand">Seo Juca</div>
+  <div class="nav-tab active" onclick="showScreen('login')">Login</div>
+  <div class="nav-tab" onclick="showScreen('dashboard')">Dashboard</div>
+  <div class="nav-tab" onclick="showScreen('pipeline-kanban')">Pipeline — Kanban</div>
+  <div class="nav-tab" onclick="showScreen('pipeline-lista')">Pipeline — Lista</div>
+  <div class="nav-tab" onclick="showScreen('locais-cards')">Locais — Cards</div>
+  <div class="nav-tab" onclick="showScreen('locais-mapa')">Locais — Mapa</div>
+  <div class="nav-tab" onclick="showScreen('nova-indicacao')">Nova Indicação</div>
+  <div class="nav-right">
+    <div class="nav-user">
+      <div class="nav-avatar">RF</div>
+      Ricardo F. — Franqueado
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 1 — LOGIN
+═══════════════════════════════════════ -->
+<div id="screen-login" class="screen active login-screen">
+  <div class="login-left">
+    <div class="login-logo">Seo <span>Juca</span></div>
+    <div class="login-tagline">Sistema de Indicações</div>
+    <div class="login-ilustracao">
+      <div class="login-stat">
+        <div class="login-stat-icon">🏢</div>
+        <div>
+          <div class="login-stat-num">247</div>
+          <div class="login-stat-label">Indicações este mês</div>
+        </div>
+      </div>
+      <div class="login-stat">
+        <div class="login-stat-icon">✅</div>
+        <div>
+          <div class="login-stat-num">38</div>
+          <div class="login-stat-label">Fechamentos no ano</div>
+        </div>
+      </div>
+      <div class="login-stat">
+        <div class="login-stat-icon">🌱</div>
+        <div>
+          <div class="login-stat-num">12</div>
+          <div class="login-stat-label">Locais disponíveis agora</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="login-title">Bem-vindo de volta</div>
+    <div class="login-sub">Acesse com as credenciais fornecidas pela franqueadora</div>
+    <div class="form-group">
+      <label class="form-label">E-mail</label>
+      <input class="form-input" type="email" placeholder="seu@email.com.br" value="ricardo@franqueado.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Senha</label>
+      <input class="form-input" type="password" placeholder="••••••••" value="12345678">
+    </div>
+    <button class="btn-login" onclick="showScreen('dashboard')">Entrar no sistema</button>
+    <div class="login-footer">Problemas com acesso? Entre em contato com a franqueadora.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 2 — DASHBOARD
+═══════════════════════════════════════ -->
+<div id="screen-dashboard" class="screen">
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-franquias">
+          <div class="sf-label">Franquias disponíveis</div>
+          <div class="sf-num">2</div>
+          <div class="sf-sub">de 5 contratadas</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Menu</div>
+        <div class="sidebar-item active" onclick="showScreen('dashboard')">
+          <span class="icon">📊</span> Início
+        </div>
+        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')">
+          <span class="icon">📋</span> Meu pipeline
+          <span class="sidebar-badge">7</span>
+        </div>
+        <div class="sidebar-item" onclick="showScreen('locais-cards')">
+          <span class="icon">📍</span> Locais disponíveis
+          <span class="sidebar-badge">12</span>
+        </div>
+        <div class="sidebar-item" onclick="showScreen('nova-indicacao')">
+          <span class="icon">➕</span> Nova indicação
+        </div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Olá, Ricardo 👋</div>
+          <div class="page-subtitle">Veja o resumo das suas indicações</div>
+        </div>
+        <button class="btn-primary" onclick="showScreen('nova-indicacao')">+ Nova indicação</button>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card-label">Total no pipeline</div>
+          <div class="stat-card-num">7</div>
+          <div class="stat-card-sub">indicações ativas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Em contato</div>
+          <div class="stat-card-num">3</div>
+          <div class="stat-card-sub"><span class="stat-card-dot" style="background:#2563EB"></span>aguardando retorno</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Proposta enviada</div>
+          <div class="stat-card-num">2</div>
+          <div class="stat-card-sub"><span class="stat-card-dot" style="background:#EA580C"></span>em negociação</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Fechados</div>
+          <div class="stat-card-num" style="color:var(--verde)">3</div>
+          <div class="stat-card-sub"><span class="stat-card-dot" style="background:var(--verde)"></span>este ano</div>
+        </div>
+      </div>
+
+      <!-- Preview pipeline -->
+      <div class="section-header">
+        <div class="section-title">Pipeline recente</div>
+        <button class="btn-secondary" onclick="showScreen('pipeline-kanban')">Ver tudo →</button>
+      </div>
+
+      <div style="background:white; border-radius:12px; border:1px solid var(--cinza-borda); overflow:hidden; margin-bottom:28px;">
+        <div class="lista-thead">
+          <div>Local</div><div>Tipo</div><div>Cidade</div><div>Etapa</div><div>Origem</div><div></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Cond. Parque das Flores</div><div class="lista-row-sub">280 aptos</div></div>
+          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
+          <div>Campinas/SP</div>
+          <div><span class="status-pill" style="background:#EEF2FF;color:#4338CA"><span class="status-dot" style="background:#4338CA"></span>1ª conversa</span></div>
+          <div><span style="font-size:12px;color:var(--cinza-texto)">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Empresa TechSul</div><div class="lista-row-sub">450 funcionários</div></div>
+          <div><span class="kcard-tipo tipo-emp">Empresa</span></div>
+          <div>Campinas/SP</div>
+          <div><span class="status-pill" style="background:#FFF7ED;color:#C2410C"><span class="status-dot" style="background:#C2410C"></span>Proposta</span></div>
+          <div><span style="font-size:12px;color:var(--cinza-texto)">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Cond. Jardim Europa</div><div class="lista-row-sub">180 aptos — da franqueadora</div></div>
+          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
+          <div>Jundiaí/SP</div>
+          <div><span class="status-pill" style="background:#EAF5EC;color:var(--verde)"><span class="status-dot" style="background:var(--verde)"></span>Tentativa de contato</span></div>
+          <div><span style="font-size:12px;color:var(--cinza-texto)">🟡 Franqueadora</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 3 — PIPELINE KANBAN
+═══════════════════════════════════════ -->
+<div id="screen-pipeline-kanban" class="screen">
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-franquias">
+          <div class="sf-label">Franquias disponíveis</div>
+          <div class="sf-num">2</div>
+          <div class="sf-sub">de 5 contratadas</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Menu</div>
+        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
+        <div class="sidebar-item active" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
+        <div class="sidebar-item" onclick="showScreen('locais-cards')"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
+        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Meu pipeline</div>
+          <div class="page-subtitle">7 indicações ativas</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="view-toggle">
+            <button class="vt-btn active">⊞ Kanban</button>
+            <button class="vt-btn" onclick="showScreen('pipeline-lista')">☰ Lista</button>
+          </div>
+          <button class="btn-primary" onclick="showScreen('nova-indicacao')">+ Nova indicação</button>
+        </div>
+      </div>
+
+      <div class="kanban-scroll">
+        <div class="kanban-board">
+
+          <!-- Nova indicação -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#F3F2EE">
+              <div class="kanban-col-dot" style="background:var(--pipeline-1)"></div>
+              <div class="kanban-col-name" style="color:#374151">Nova indicação</div>
+              <div class="kanban-count" style="color:#374151">1</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard">
+                <div class="kcard-tipo tipo-acad">🏋️ Academia</div>
+                <div class="kcard-name">Smart Fit Bonfim</div>
+                <div class="kcard-local">Campinas/SP</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>hoje</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tentativa de contato -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#EFF6FF">
+              <div class="kanban-col-dot" style="background:var(--pipeline-2)"></div>
+              <div class="kanban-col-name" style="color:#1D4ED8">Tentativa contato</div>
+              <div class="kanban-count" style="color:#1D4ED8">2</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard">
+                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-name">Cond. Jardim Europa</div>
+                <div class="kcard-local">Jundiaí/SP · 180 aptos</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--amarelo-escuro)"></span>Franqueadora</span>
+                  <span>3 dias</span>
+                </div>
+              </div>
+              <div class="kcard">
+                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-name">Cond. Bosque Verde</div>
+                <div class="kcard-local">Campinas/SP · 95 aptos</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>5 dias</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contato feito -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#ECFEFF">
+              <div class="kanban-col-dot" style="background:var(--pipeline-3)"></div>
+              <div class="kanban-col-name" style="color:#0E7490">Contato feito</div>
+              <div class="kanban-count" style="color:#0E7490">1</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard">
+                <div class="kcard-tipo tipo-emp">🏭 Empresa</div>
+                <div class="kcard-name">Indústria Metalbras</div>
+                <div class="kcard-local">Sumaré/SP</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>1 sem</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1ª conversa -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#F0FDF4">
+              <div class="kanban-col-dot" style="background:var(--pipeline-4)"></div>
+              <div class="kanban-col-name" style="color:#15803D">1ª conversa</div>
+              <div class="kanban-count" style="color:#15803D">1</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard">
+                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-name">Cond. Parque das Flores</div>
+                <div class="kcard-local">Campinas/SP · 280 aptos</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>2 sem</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visita técnica -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#F5F3FF">
+              <div class="kanban-col-dot" style="background:var(--pipeline-5)"></div>
+              <div class="kanban-col-name" style="color:#6D28D9">Visita técnica</div>
+              <div class="kanban-count" style="color:#6D28D9">1</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard">
+                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-name">Cond. Solar das Palmeiras</div>
+                <div class="kcard-local">Valinhos/SP · 320 aptos</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>3 sem</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proposta -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#FFF7ED">
+              <div class="kanban-col-dot" style="background:var(--pipeline-6)"></div>
+              <div class="kanban-col-name" style="color:#C2410C">Proposta</div>
+              <div class="kanban-count" style="color:#C2410C">2</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard">
+                <div class="kcard-tipo tipo-emp">🏭 Empresa</div>
+                <div class="kcard-name">Empresa TechSul</div>
+                <div class="kcard-local">Campinas/SP · 450 func.</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>1 mês</span>
+                </div>
+              </div>
+              <div class="kcard">
+                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-name">Cond. Alto da Boa Vista</div>
+                <div class="kcard-local">Americana/SP · 140 aptos</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>5 sem</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fechado -->
+          <div class="kanban-col">
+            <div class="kanban-col-header" style="background:#F0FDF4">
+              <div class="kanban-col-dot" style="background:var(--pipeline-7)"></div>
+              <div class="kanban-col-name" style="color:#15803D">✓ Fechado</div>
+              <div class="kanban-count" style="color:#15803D">3</div>
+            </div>
+            <div class="kanban-cards">
+              <div class="kcard" style="border-left:3px solid var(--verde)">
+                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-name">Cond. Vista Alegre</div>
+                <div class="kcard-local">Campinas/SP · 200 aptos</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span>2 meses</span>
+                </div>
+              </div>
+              <div class="kcard" style="border-left:3px solid var(--amarelo-escuro)">
+                <div class="kcard-tipo tipo-emp">🏭 Empresa</div>
+                <div class="kcard-name">Grupo Camargo</div>
+                <div class="kcard-local">Hortolândia/SP</div>
+                <div class="kcard-footer">
+                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--amarelo-escuro)"></span>Franqueadora</span>
+                  <span>3 meses</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 4 — PIPELINE LISTA
+═══════════════════════════════════════ -->
+<div id="screen-pipeline-lista" class="screen">
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-franquias">
+          <div class="sf-label">Franquias disponíveis</div>
+          <div class="sf-num">2</div>
+          <div class="sf-sub">de 5 contratadas</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Menu</div>
+        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
+        <div class="sidebar-item active"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
+        <div class="sidebar-item" onclick="showScreen('locais-cards')"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
+        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Meu pipeline</div>
+          <div class="page-subtitle">7 indicações ativas</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="view-toggle">
+            <button class="vt-btn" onclick="showScreen('pipeline-kanban')">⊞ Kanban</button>
+            <button class="vt-btn active">☰ Lista</button>
+          </div>
+          <button class="btn-primary" onclick="showScreen('nova-indicacao')">+ Nova indicação</button>
+        </div>
+      </div>
+      <div class="lista-table">
+        <div class="lista-thead">
+          <div>Local</div><div>Tipo</div><div>Cidade</div><div>Etapa</div><div>Origem</div><div></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Smart Fit Bonfim</div><div class="lista-row-sub">Academia</div></div>
+          <div><span class="kcard-tipo tipo-acad">Academia</span></div>
+          <div>Campinas/SP</div>
+          <div><span class="status-pill" style="background:#F3F4F6;color:#374151"><span class="status-dot" style="background:#6B7280"></span>Nova indicação</span></div>
+          <div><span style="font-size:12px">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Cond. Jardim Europa</div><div class="lista-row-sub">180 apartamentos</div></div>
+          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
+          <div>Jundiaí/SP</div>
+          <div><span class="status-pill" style="background:#EFF6FF;color:#1D4ED8"><span class="status-dot" style="background:#2563EB"></span>Tentativa contato</span></div>
+          <div><span style="font-size:12px">🟡 Franqueadora</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Cond. Bosque Verde</div><div class="lista-row-sub">95 apartamentos</div></div>
+          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
+          <div>Campinas/SP</div>
+          <div><span class="status-pill" style="background:#EFF6FF;color:#1D4ED8"><span class="status-dot" style="background:#2563EB"></span>Tentativa contato</span></div>
+          <div><span style="font-size:12px">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Indústria Metalbras</div><div class="lista-row-sub">Empresa industrial</div></div>
+          <div><span class="kcard-tipo tipo-emp">Empresa</span></div>
+          <div>Sumaré/SP</div>
+          <div><span class="status-pill" style="background:#ECFEFF;color:#0E7490"><span class="status-dot" style="background:#0891B2"></span>Contato feito</span></div>
+          <div><span style="font-size:12px">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Cond. Parque das Flores</div><div class="lista-row-sub">280 apartamentos</div></div>
+          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
+          <div>Campinas/SP</div>
+          <div><span class="status-pill" style="background:#F0FDF4;color:#15803D"><span class="status-dot" style="background:#059669"></span>1ª conversa</span></div>
+          <div><span style="font-size:12px">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Cond. Solar das Palmeiras</div><div class="lista-row-sub">320 apartamentos</div></div>
+          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
+          <div>Valinhos/SP</div>
+          <div><span class="status-pill" style="background:#F5F3FF;color:#6D28D9"><span class="status-dot" style="background:#7C3AED"></span>Visita técnica</span></div>
+          <div><span style="font-size:12px">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+        <div class="lista-row">
+          <div><div class="lista-row-name">Empresa TechSul</div><div class="lista-row-sub">450 funcionários</div></div>
+          <div><span class="kcard-tipo tipo-emp">Empresa</span></div>
+          <div>Campinas/SP</div>
+          <div><span class="status-pill" style="background:#FFF7ED;color:#C2410C"><span class="status-dot" style="background:#EA580C"></span>Proposta</span></div>
+          <div><span style="font-size:12px">🟢 Própria</span></div>
+          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 5 — LOCAIS DISPONÍVEIS (CARDS)
+═══════════════════════════════════════ -->
+<div id="screen-locais-cards" class="screen">
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-franquias" style="background:#FEF9EC;border-color:rgba(201,160,16,0.3)">
+          <div class="sf-label" style="color:var(--amarelo-escuro)">Franquias disponíveis</div>
+          <div class="sf-num" style="color:var(--amarelo-escuro)">0</div>
+          <div class="sf-sub">de 5 contratadas — sem disponível</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Menu</div>
+        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
+        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
+        <div class="sidebar-item active"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
+        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Locais disponíveis</div>
+          <div class="page-subtitle">12 oportunidades aguardando franqueados</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="view-toggle">
+            <button class="vt-btn active">⊞ Cards</button>
+            <button class="vt-btn" onclick="showScreen('locais-mapa')">🗺 Mapa</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerta sem franquia -->
+      <div style="background:#FEF9EC;border:1px solid rgba(201,160,16,0.4);border-radius:10px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;font-size:14px;">
+        <span style="font-size:18px">⚠️</span>
+        <span><strong>Você não possui franquias disponíveis.</strong> Entre em contato com a franqueadora para adquirir novas unidades e aproveitar as oportunidades abaixo.</span>
+      </div>
+
+      <div class="filtros-bar">
+        <div class="filtro-chip active">Todos (12)</div>
+        <div class="filtro-chip">Condomínio (8)</div>
+        <div class="filtro-chip">Empresa (2)</div>
+        <div class="filtro-chip">Academia (1)</div>
+        <div class="filtro-chip">Hospital (1)</div>
+      </div>
+
+      <div class="locais-grid">
+
+        <div class="local-card bloqueado">
+          <div class="local-card-header">
+            <span class="local-tipo-badge tipo-cond">🏢 Condomínio</span>
+            <span style="font-size:11px;color:var(--cinza-texto)">há 2 dias</span>
+          </div>
+          <div class="local-card-name">Cond. Crystal Tower</div>
+          <div class="local-card-endereco">📍 Av. Brasil, 1200 — Campinas/SP</div>
+          <div class="local-card-info">
+            <div class="lci-item"><div class="lci-label">Apartamentos</div><div class="lci-val">350</div></div>
+            <div class="lci-item"><div class="lci-label">Andares</div><div class="lci-val">22</div></div>
+            <div class="lci-item"><div class="lci-label">Origem</div><div class="lci-val">🟡 Franqueadora</div></div>
+          </div>
+          <div class="local-card-footer">
+            <button class="btn-absorver disabled">Sem franquia disponível</button>
+          </div>
+        </div>
+
+        <div class="local-card bloqueado">
+          <div class="local-card-header">
+            <span class="local-tipo-badge tipo-cond">🏢 Condomínio</span>
+            <span style="font-size:11px;color:var(--cinza-texto)">há 5 dias</span>
+          </div>
+          <div class="local-card-name">Cond. Reserva do Lago</div>
+          <div class="local-card-endereco">📍 R. das Palmeiras, 88 — Valinhos/SP</div>
+          <div class="local-card-info">
+            <div class="lci-item"><div class="lci-label">Apartamentos</div><div class="lci-val">210</div></div>
+            <div class="lci-item"><div class="lci-label">Andares</div><div class="lci-val">14</div></div>
+            <div class="lci-item"><div class="lci-label">Origem</div><div class="lci-val">🟡 Franqueadora</div></div>
+          </div>
+          <div class="local-card-footer">
+            <button class="btn-absorver disabled">Sem franquia disponível</button>
+          </div>
+        </div>
+
+        <div class="local-card bloqueado">
+          <div class="local-card-header">
+            <span class="local-tipo-badge tipo-emp">🏭 Empresa</span>
+            <span style="font-size:11px;color:var(--cinza-texto)">há 1 semana</span>
+          </div>
+          <div class="local-card-name">Escritório Central BRF</div>
+          <div class="local-card-endereco">📍 Av. Paulista, 900 — São Paulo/SP</div>
+          <div class="local-card-info">
+            <div class="lci-item"><div class="lci-label">Funcionários</div><div class="lci-val">600+</div></div>
+            <div class="lci-item"><div class="lci-label">Andares</div><div class="lci-val">8</div></div>
+            <div class="lci-item"><div class="lci-label">Origem</div><div class="lci-val">🟡 Franqueadora</div></div>
+          </div>
+          <div class="local-card-footer">
+            <button class="btn-absorver disabled">Sem franquia disponível</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 6 — LOCAIS DISPONÍVEIS (MAPA)
+═══════════════════════════════════════ -->
+<div id="screen-locais-mapa" class="screen">
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-franquias">
+          <div class="sf-label">Franquias disponíveis</div>
+          <div class="sf-num">2</div>
+          <div class="sf-sub">de 5 contratadas</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Menu</div>
+        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
+        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
+        <div class="sidebar-item active"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
+        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Locais disponíveis</div>
+          <div class="page-subtitle">12 oportunidades no mapa</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="view-toggle">
+            <button class="vt-btn" onclick="showScreen('locais-cards')">⊞ Cards</button>
+            <button class="vt-btn active">🗺 Mapa</button>
+          </div>
+        </div>
+      </div>
+      <div class="mapa-placeholder">
+        <div class="mapa-grid"></div>
+        <div class="mapa-pins">
+          <div class="mapa-pin" style="left:38%;top:28%"><div class="mapa-pin-bubble">Crystal Tower · 350 aptos</div></div>
+          <div class="mapa-pin" style="left:22%;top:42%"><div class="mapa-pin-bubble">Reserva do Lago · 210 aptos</div></div>
+          <div class="mapa-pin amarelo" style="left:58%;top:35%"><div class="mapa-pin-bubble amarelo">BRF Escritório · Empresa</div></div>
+          <div class="mapa-pin" style="left:48%;top:55%"><div class="mapa-pin-bubble">Cond. São Lucas · 180 aptos</div></div>
+          <div class="mapa-pin amarelo" style="left:30%;top:65%"><div class="mapa-pin-bubble amarelo">Hospital Unimed · Hospital</div></div>
+          <div class="mapa-pin" style="left:65%;top:60%"><div class="mapa-pin-bubble">Cond. Bela Vista · 95 aptos</div></div>
+        </div>
+        <div class="mapa-overlay-label">
+          🗺 Visualização integrada com Google Maps na versão final
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px;font-size:12px;color:var(--cinza-texto);align-items:center">
+        <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:var(--verde);display:inline-block"></span> Condomínio / outro</span>
+        <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:var(--amarelo-escuro);display:inline-block"></span> Empresa / hospital</span>
+        <span style="margin-left:auto">Clique no pin para ver detalhes e absorver</span>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TELA 7 — NOVA INDICAÇÃO
+═══════════════════════════════════════ -->
+<div id="screen-nova-indicacao" class="screen">
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-franquias">
+          <div class="sf-label">Franquias disponíveis</div>
+          <div class="sf-num">2</div>
+          <div class="sf-sub">de 5 contratadas</div>
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Menu</div>
+        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
+        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
+        <div class="sidebar-item" onclick="showScreen('locais-cards')"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
+        <div class="sidebar-item active"><span class="icon">➕</span> Nova indicação</div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Nova indicação</div>
+          <div class="page-subtitle">Preencha os dados do local que deseja indicar</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-section-title">Tipo de local</div>
+        <div class="tipo-selector">
+          <div class="tipo-opt selected">
+            <div class="tipo-opt-icon">🏢</div>
+            Condomínio
+          </div>
+          <div class="tipo-opt">
+            <div class="tipo-opt-icon">🏭</div>
+            Empresa
+          </div>
+          <div class="tipo-opt">
+            <div class="tipo-opt-icon">🏋️</div>
+            Academia
+          </div>
+          <div class="tipo-opt">
+            <div class="tipo-opt-icon">🏥</div>
+            Hospital
+          </div>
+          <div class="tipo-opt">
+            <div class="tipo-opt-icon">📦</div>
+            Outros
+          </div>
+        </div>
+
+        <div class="form-section-title">Contato do local</div>
+        <div class="form-group-mb">
+          <label class="form-label">Nome do responsável / contato</label>
+          <input class="form-input" type="text" placeholder="Ex: João Silva — síndico">
+        </div>
+        <div class="form-row">
+          <div>
+            <label class="form-label">Telefone</label>
+            <input class="form-input" type="text" placeholder="(19) 99999-9999">
+          </div>
+          <div>
+            <label class="form-label">CEP</label>
+            <input class="form-input" type="text" placeholder="13000-000" id="cep-input">
+          </div>
+        </div>
+
+        <div class="form-section-title">Endereço <span style="font-size:11px;color:var(--cinza-texto);font-weight:400;text-transform:none;letter-spacing:0">— preenchido automaticamente via CEP</span></div>
+        <div class="form-group-mb">
+          <label class="form-label">Logradouro</label>
+          <input class="form-input" type="text" placeholder="Rua / Avenida" value="Av. Barão de Itapura">
+        </div>
+        <div class="form-row-3">
+          <div>
+            <label class="form-label">Número</label>
+            <input class="form-input" type="text" placeholder="Ex: 1234">
+          </div>
+          <div>
+            <label class="form-label">Bairro</label>
+            <input class="form-input" type="text" value="Cambuí">
+          </div>
+          <div>
+            <label class="form-label">Cidade/UF</label>
+            <input class="form-input" type="text" value="Campinas/SP">
+          </div>
+        </div>
+
+        <!-- Campo extra condomínio -->
+        <div class="campo-extra">
+          <strong>📋 Campo obrigatório para Condomínio</strong>
+          <label class="form-label">Quantidade de apartamentos</label>
+          <input class="form-input" type="number" placeholder="Ex: 200" style="background:white">
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="showScreen('dashboard')">Cancelar</button>
+          <button class="btn-primary">Enviar indicação →</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  const tabs = {
+    'login': 0, 'dashboard': 1, 'pipeline-kanban': 2, 'pipeline-lista': 3,
+    'locais-cards': 4, 'locais-mapa': 5, 'nova-indicacao': 6
+  };
+  document.querySelectorAll('.nav-tab')[tabs[id]]?.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// Tipo de local selector
+document.querySelectorAll('.tipo-opt').forEach(opt => {
+  opt.addEventListener('click', function() {
+    document.querySelectorAll('.tipo-opt').forEach(o => o.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+
+// Filtros
+document.querySelectorAll('.filtro-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.filtro-chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
