@@ -41,24 +41,30 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
+  html, body {
     font-family: 'Nunito', sans-serif;
     background: var(--cinza-bg);
     color: var(--texto);
-    min-height: 100vh;
+    height: 100%;
+    overflow: hidden; /* o scroll acontece dentro de cada .screen, não aqui */
+    margin: 0;
   }
 
   /* nav de dev removido — navegação é pela sidebar interna */
 
-  /* ── SCREENS ── */
-  .screen { display: none; }
-  .screen.active { display: block; }
-  /* Telas públicas nunca crescem além da viewport */
-  #screen-welcome.active,
-  #screen-login-page.active {
-    display: flex;
-    height: 100vh;
+  /* ── SCREENS — cada tela ocupa a viewport inteira, sem exceção ── */
+  .screen {
+    display: none;
+    position: fixed;
+    inset: 0;
     overflow: hidden;
+  }
+  .screen.active { display: flex; flex-direction: column; }
+
+  /* Telas internas (pós-login) precisam de scroll interno */
+  .screen.internal.active {
+    display: block;
+    overflow-y: auto;
   }
 
   /* ═══════════════════════════════════
@@ -74,16 +80,12 @@
   ═══════════════════════════════════ */
   .welcome-screen,
   .login-page-screen {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
     background: var(--verde-escuro);
-    position: relative;
   }
 
   .welcome-card {
     width: 100%;
-    height: 100%;
+    flex: 1;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -241,7 +243,8 @@
   .dash-layout {
     display: grid;
     grid-template-columns: 224px 1fr;
-    min-height: 100vh;
+    height: 100%;
+    min-height: 100%;
   }
 
   .sidebar {
@@ -250,7 +253,7 @@
     padding: 0;
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -333,7 +336,7 @@
   .sb-franquias.aviso .sf-label { color: #B45309; }
   .sb-franquias.aviso .sf-num { color: #92400E; }
 
-  .main-content { padding: 28px 32px; }
+  .main-content { padding: 28px 32px; overflow-y: auto; height: 100%; }
 
   .page-header {
     display: flex;
@@ -760,7 +763,7 @@
 <!-- ════════════════════════════════════════
      TELA 2 — DASHBOARD
 ════════════════════════════════════════ -->
-<div id="screen-dashboard" class="screen">
+<div id="screen-dashboard" class="screen internal">
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="sb-header">
@@ -852,7 +855,7 @@
 <!-- ════════════════════════════════════════
      TELA 3 — PIPELINE KANBAN
 ════════════════════════════════════════ -->
-<div id="screen-kanban" class="screen">
+<div id="screen-kanban" class="screen internal">
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="sb-header">
@@ -1064,7 +1067,7 @@
 <!-- ════════════════════════════════════════
      TELA 4 — PIPELINE LISTA
 ════════════════════════════════════════ -->
-<div id="screen-lista" class="screen">
+<div id="screen-lista" class="screen internal">
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="sb-header">
@@ -1114,7 +1117,7 @@
 <!-- ════════════════════════════════════════
      TELA 5 — LOCAIS DISPONÍVEIS (CARDS)
 ════════════════════════════════════════ -->
-<div id="screen-locais-cards" class="screen">
+<div id="screen-locais-cards" class="screen internal">
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="sb-franquias aviso"><div class="sf-label">Franquias disponíveis</div><div class="sf-num" style="color:#92400E">0</div><div class="sf-sub">de 5 contratadas</div></div>
@@ -1192,7 +1195,7 @@
 <!-- ════════════════════════════════════════
      TELA 6 — LOCAIS DISPONÍVEIS (MAPA)
 ════════════════════════════════════════ -->
-<div id="screen-locais-mapa" class="screen">
+<div id="screen-locais-mapa" class="screen internal">
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="sb-header">
@@ -1244,7 +1247,7 @@
 <!-- ════════════════════════════════════════
      TELA 7 — NOVA INDICAÇÃO
 ════════════════════════════════════════ -->
-<div id="screen-nova" class="screen">
+<div id="screen-nova" class="screen internal">
   <div class="dash-layout">
     <aside class="sidebar">
       <div class="sb-header">
@@ -1333,25 +1336,16 @@
 </div>
 
 <script>
-  const PUBLIC = ['welcome', 'login-page'];
-
   function go(id) {
+    // Esconder todas as telas
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    // Mostrar a tela alvo
     const el = document.getElementById('screen-' + id);
     if (el) el.classList.add('active');
     // Sidebar: destacar item ativo
     document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
     document.querySelectorAll('.sb-item[data-screen="' + id + '"]').forEach(i => i.classList.add('active'));
-    // Telas públicas: sem scroll de forma alguma
-    if (PUBLIC.includes(id)) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    window.scrollTo(0, 0);
   }
-  // Inicializar em modo público
-  document.body.style.overflow = 'hidden';
 
   // login form gerenciado via go()
 
