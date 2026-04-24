@@ -3,40 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seo Juca — Indicações</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Seo Juca — Indicações v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --verde: #2D7A3A;
-    --verde-escuro: #1B5226;
-    --verde-claro: #4CAF5E;
-    --verde-bg: #EAF5EC;
-    --amarelo: #F5C842;
-    --amarelo-escuro: #C9A010;
-    --branco: #FAFAF8;
-    --cinza-bg: #F3F2EE;
-    --cinza-borda: #E0DED8;
-    --cinza-texto: #8A8880;
-    --texto: #1A1A18;
-    --texto-leve: #4A4A48;
-    --azul-pipe: #2563EB;
-    --roxo-pipe: #7C3AED;
-    --laranja-pipe: #EA580C;
-    --pipeline-1: #6B7280;
-    --pipeline-2: #2563EB;
-    --pipeline-3: #0891B2;
-    --pipeline-4: #059669;
-    --pipeline-5: #7C3AED;
-    --pipeline-6: #EA580C;
-    --pipeline-7: #16A34A;
-    --shadow: 0 2px 12px rgba(0,0,0,0.08);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    /* Paleta oficial do manual */
+    --verde-escuro:  #033517;
+    --verde-primary: #006228;
+    --verde-medio:   #006228cc;
+    --verde-vivo:    #4fc14b;
+    --verde-suave:   #aabcaa;
+    --verde-bg:      #f1fff0;
+    --verde-bg2:     #f9fff8;
+    --branco:        #ffffff;
+    --off-white:     #f9fff8;
+
+    /* Neutros */
+    --cinza-bg:      #F2F4F0;
+    --cinza-borda:   #E0E5DC;
+    --cinza-texto:   #7A8A78;
+    --texto:         #0D1F0C;
+    --texto-leve:    #3A4D38;
+
+    /* Pipeline */
+    --p1: #6B7280;
+    --p2: #2563EB;
+    --p3: #0891B2;
+    --p4: #059669;
+    --p5: #7C3AED;
+    --p6: #EA580C;
+    --p7: #16A34A;
+
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow:    0 2px 12px rgba(0,0,0,0.09);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.13);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
     background: var(--cinza-bg);
     color: var(--texto);
     min-height: 100vh;
@@ -45,55 +51,64 @@
   /* ── NAV TABS ── */
   .nav-tabs {
     display: flex;
+    align-items: stretch;
     gap: 0;
     background: var(--verde-escuro);
-    padding: 0 24px;
+    padding: 0 20px;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
-  .nav-tab {
-    font-family: 'DM Sans', sans-serif;
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px 10px 0;
+    margin-right: 12px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .nav-brand-face {
+    width: 28px; height: 28px;
+    background: var(--verde-vivo);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .nav-brand-text {
+    font-weight: 800;
     font-size: 13px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.6);
-    padding: 14px 20px;
+    color: white;
+    line-height: 1.2;
+  }
+  .nav-brand-text span { color: var(--verde-vivo); }
+  .nav-brand-sub { font-size: 9px; color: rgba(255,255,255,0.45); font-weight: 500; letter-spacing: 0.5px; }
+  .nav-tab {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    padding: 0 14px;
     cursor: pointer;
     border-bottom: 3px solid transparent;
     transition: all 0.2s;
     white-space: nowrap;
+    display: flex; align-items: center;
   }
-  .nav-tab:hover { color: rgba(255,255,255,0.9); }
-  .nav-tab.active { color: var(--amarelo); border-bottom-color: var(--amarelo); }
-  .nav-brand {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    color: white;
-    padding: 14px 20px 14px 0;
-    margin-right: 12px;
-    border-right: 1px solid rgba(255,255,255,0.15);
-    letter-spacing: -0.3px;
-  }
-  .nav-right {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  .nav-tab:hover { color: rgba(255,255,255,0.85); }
+  .nav-tab.active { color: var(--verde-vivo); border-bottom-color: var(--verde-vivo); }
+  .nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
   .nav-user {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.8);
-    font-size: 13px;
+    display: flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px; font-weight: 600;
   }
   .nav-avatar {
-    width: 28px; height: 28px;
-    background: var(--amarelo);
+    width: 26px; height: 26px;
+    background: var(--verde-vivo);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; color: var(--verde-escuro);
+    font-size: 10px; font-weight: 800; color: var(--verde-escuro);
   }
 
   /* ── SCREENS ── */
@@ -101,786 +116,704 @@
   .screen.active { display: block; }
 
   /* ═══════════════════════════════════
-     TELA 1 — LOGIN
+     PADRÃO GEOMÉTRICO (do manual)
   ═══════════════════════════════════ */
-  .login-screen {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .login-left {
-    background: var(--verde-escuro);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .login-left::before {
-    content: '';
-    position: absolute;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
-    top: -80px; right: -80px;
-    border-radius: 50%;
-  }
-  .login-left::after {
-    content: '';
-    position: absolute;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(76,175,94,0.15) 0%, transparent 70%);
-    bottom: -60px; left: -60px;
-    border-radius: 50%;
-  }
-  .login-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 36px;
-    color: white;
-    letter-spacing: -1px;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 1;
-  }
-  .login-logo span { color: var(--amarelo); }
-  .login-tagline {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    position: relative;
-    z-index: 1;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 48px;
-  }
-  .login-ilustracao {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    max-width: 320px;
-  }
-  .login-stat {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .login-stat-icon {
-    width: 36px; height: 36px;
-    background: var(--amarelo);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
-  }
-  .login-stat-num {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    color: white;
-  }
-  .login-stat-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .login-right {
-    background: var(--branco);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 72px;
-  }
-  .login-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--texto);
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-  }
-  .login-sub {
-    font-size: 14px;
-    color: var(--cinza-texto);
-    margin-bottom: 36px;
-  }
-  .form-group {
-    margin-bottom: 20px;
-  }
-  .form-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--texto-leve);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .form-input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1.5px solid var(--cinza-borda);
-    border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    color: var(--texto);
-    background: white;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-input:focus { border-color: var(--verde); }
-  .form-input::placeholder { color: #C5C3BE; }
-  .btn-login {
-    width: 100%;
-    padding: 15px;
-    background: var(--verde);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 8px;
-    letter-spacing: 0.3px;
-    transition: background 0.2s;
-  }
-  .btn-login:hover { background: var(--verde-escuro); }
-  .login-footer {
-    margin-top: 24px;
-    font-size: 12px;
-    color: var(--cinza-texto);
-    text-align: center;
+  .pattern-bg {
+    background-color: var(--verde-escuro);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zM28 100L0 84V51l28 17 28-17v33L28 100z' fill='none' stroke='%23ffffff08' stroke-width='1'/%3E%3C/svg%3E");
   }
 
   /* ═══════════════════════════════════
-     TELA 2 — DASHBOARD FRANQUEADO
+     TELA 1A — BEM-VINDO DE VOLTA
+  ═══════════════════════════════════ */
+  .welcome-screen {
+    min-height: calc(100vh - 47px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .welcome-card {
+    background: var(--verde-escuro);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 460px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(3,53,23,0.5);
+    position: relative;
+  }
+
+  .welcome-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zM28 100L0 84V51l28 17 28-17v33L28 100z' fill='none' stroke='%23ffffff06' stroke-width='1.5'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .welcome-body {
+    position: relative;
+    z-index: 1;
+    padding: 52px 48px 40px;
+    text-align: center;
+  }
+
+  .welcome-logo-circle {
+    width: 72px; height: 72px;
+    background: var(--verde-vivo);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 36px;
+    box-shadow: 0 0 0 8px rgba(79,193,75,0.15);
+  }
+
+  .welcome-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .welcome-title span { color: var(--verde-vivo); }
+
+  .welcome-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+
+  .welcome-stats {
+    display: flex;
+    gap: 0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 36px;
+  }
+  .wstat {
+    flex: 1;
+    padding: 16px 12px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .wstat:last-child { border-right: none; }
+  .wstat-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--verde-vivo);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .wstat-label { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 0.3px; }
+
+  .btn-welcome {
+    width: 100%;
+    padding: 16px;
+    background: var(--verde-vivo);
+    color: var(--verde-escuro);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-welcome:hover { background: #5fd45a; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(79,193,75,0.4); }
+
+  /* ═══════════════════════════════════
+     TELA 1B — LOGIN
+  ═══════════════════════════════════ */
+  .login-screen {
+    min-height: calc(100vh - 47px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: var(--cinza-bg);
+  }
+
+  .login-card {
+    background: white;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    padding: 44px 44px 36px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    border: 1px solid var(--cinza-borda);
+  }
+
+  .login-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--cinza-texto);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 32px;
+    transition: color 0.15s;
+  }
+  .login-back:hover { color: var(--verde-primary); }
+
+  .login-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .login-header-icon {
+    width: 44px; height: 44px;
+    background: var(--verde-bg);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    border: 1px solid rgba(79,193,75,0.3);
+  }
+  .login-title { font-size: 20px; font-weight: 800; color: var(--texto); letter-spacing: -0.3px; }
+  .login-sub { font-size: 12px; color: var(--cinza-texto); font-weight: 500; }
+
+  .form-group { margin-bottom: 18px; }
+  .form-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texto-leve);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1.5px solid var(--cinza-borda);
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--texto);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-input:focus { border-color: var(--verde-primary); box-shadow: 0 0 0 3px rgba(0,98,40,0.1); background: white; }
+  .form-input::placeholder { color: #BCC5BA; }
+
+  .btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--verde-primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.2s, transform 0.1s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-login:hover { background: var(--verde-escuro); transform: translateY(-1px); }
+
+  .login-footer {
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--cinza-texto);
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════
+     LAYOUT INTERNO (pós-login)
   ═══════════════════════════════════ */
   .dash-layout {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 224px 1fr;
     min-height: calc(100vh - 47px);
   }
+
   .sidebar {
     background: white;
     border-right: 1px solid var(--cinza-borda);
-    padding: 24px 0;
+    padding: 20px 0;
     position: sticky;
     top: 47px;
     height: calc(100vh - 47px);
     overflow-y: auto;
   }
-  .sidebar-section {
-    padding: 0 16px;
-    margin-bottom: 24px;
-  }
-  .sidebar-label {
-    font-size: 10px;
-    font-weight: 600;
+
+  .sb-section { padding: 0 14px; margin-bottom: 20px; }
+  .sb-label {
+    font-size: 9px;
+    font-weight: 800;
     color: var(--cinza-texto);
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    padding: 0 8px;
-    margin-bottom: 6px;
+    padding: 0 10px;
+    margin-bottom: 5px;
   }
-  .sidebar-item {
+  .sb-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    font-size: 14px;
+    gap: 9px;
+    padding: 9px 10px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
     color: var(--texto-leve);
     cursor: pointer;
     transition: all 0.15s;
-    font-weight: 400;
   }
-  .sidebar-item:hover { background: var(--cinza-bg); color: var(--texto); }
-  .sidebar-item.active { background: var(--verde-bg); color: var(--verde); font-weight: 500; }
-  .sidebar-item .icon { font-size: 16px; width: 20px; text-align: center; }
-  .sidebar-badge {
+  .sb-item:hover { background: var(--verde-bg); color: var(--verde-primary); }
+  .sb-item.active { background: var(--verde-bg); color: var(--verde-primary); }
+  .sb-icon { font-size: 15px; width: 20px; text-align: center; }
+  .sb-badge {
     margin-left: auto;
-    background: var(--verde);
+    background: var(--verde-primary);
     color: white;
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 9px;
+    font-weight: 800;
     padding: 2px 7px;
     border-radius: 20px;
   }
-  .sidebar-franquias {
-    margin: 0 16px 0;
+
+  .sb-franquias {
+    margin: 0 14px 16px;
     background: var(--verde-bg);
-    border: 1px solid rgba(45,122,58,0.2);
-    border-radius: 10px;
+    border: 1.5px solid rgba(79,193,75,0.35);
+    border-radius: 12px;
     padding: 14px;
   }
-  .sf-label { font-size: 11px; color: var(--verde); font-weight: 500; margin-bottom: 4px; }
-  .sf-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--verde-escuro);
-    line-height: 1;
+  .sf-label { font-size: 10px; color: var(--verde-primary); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .sf-num { font-size: 28px; font-weight: 900; color: var(--verde-escuro); line-height: 1; }
+  .sf-sub { font-size: 10px; color: var(--cinza-texto); margin-top: 2px; font-weight: 600; }
+
+  /* Alerta sem franquia */
+  .sb-franquias.aviso {
+    background: #FFFBEB;
+    border-color: rgba(234,88,12,0.3);
   }
-  .sf-sub { font-size: 11px; color: var(--cinza-texto); margin-top: 2px; }
+  .sb-franquias.aviso .sf-label { color: #B45309; }
+  .sb-franquias.aviso .sf-num { color: #92400E; }
 
   .main-content { padding: 28px 32px; }
 
   .page-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
-  .page-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: -0.4px;
-  }
-  .page-subtitle { font-size: 13px; color: var(--cinza-texto); margin-top: 3px; }
+  .page-title { font-size: 22px; font-weight: 900; letter-spacing: -0.4px; color: var(--texto); }
+  .page-sub { font-size: 13px; color: var(--cinza-texto); margin-top: 3px; font-weight: 500; }
 
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
+    display: inline-flex; align-items: center; gap: 6px;
     padding: 10px 18px;
-    background: var(--verde);
-    color: white;
-    border: none;
-    border-radius: 9px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.2s;
+    background: var(--verde-primary);
+    color: white; border: none; border-radius: 10px;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
   }
   .btn-primary:hover { background: var(--verde-escuro); }
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 16px;
-    background: white;
-    color: var(--texto-leve);
-    border: 1.5px solid var(--cinza-borda);
-    border-radius: 9px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .btn-secondary:hover { border-color: var(--verde); color: var(--verde); }
 
-  /* Stats cards */
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 14px;
+    background: white; color: var(--texto-leve);
+    border: 1.5px solid var(--cinza-borda); border-radius: 9px;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+  }
+  .btn-secondary:hover { border-color: var(--verde-primary); color: var(--verde-primary); }
+
+  /* Cards de stats */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 28px;
+    gap: 14px;
+    margin-bottom: 24px;
   }
   .stat-card {
     background: white;
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 14px;
+    padding: 18px 20px;
     border: 1px solid var(--cinza-borda);
+    box-shadow: var(--shadow-sm);
   }
-  .stat-card-label { font-size: 12px; color: var(--cinza-texto); font-weight: 500; margin-bottom: 10px; }
-  .stat-card-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--texto);
-    line-height: 1;
-  }
-  .stat-card-sub { font-size: 12px; color: var(--cinza-texto); margin-top: 6px; }
-  .stat-card-dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
+  .stat-label { font-size: 11px; color: var(--cinza-texto); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .stat-num { font-size: 30px; font-weight: 900; color: var(--texto); line-height: 1; }
+  .stat-sub { font-size: 11px; color: var(--cinza-texto); margin-top: 5px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+  .stat-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
 
-  /* ── Pipeline Kanban ── */
-  .section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
+  /* section header */
+  .sec-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
   }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-  }
+  .sec-title { font-size: 15px; font-weight: 800; color: var(--texto); }
+
+  /* View toggle */
   .view-toggle {
-    display: flex;
-    gap: 4px;
+    display: flex; gap: 3px;
     background: var(--cinza-bg);
-    padding: 4px;
-    border-radius: 8px;
+    padding: 3px; border-radius: 8px;
   }
   .vt-btn {
-    padding: 5px 10px;
-    border-radius: 6px;
-    border: none;
-    background: transparent;
-    font-size: 12px;
-    cursor: pointer;
-    color: var(--cinza-texto);
-    transition: all 0.15s;
+    padding: 5px 11px; border-radius: 6px; border: none;
+    background: transparent; font-size: 12px; font-weight: 700;
+    cursor: pointer; color: var(--cinza-texto); transition: all 0.15s;
+    font-family: 'Nunito', sans-serif;
   }
-  .vt-btn.active {
-    background: white;
-    color: var(--texto);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  }
+  .vt-btn.active { background: white; color: var(--texto); box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
 
-  .kanban-scroll {
-    overflow-x: auto;
-    padding-bottom: 12px;
-  }
-  .kanban-board {
-    display: flex;
-    gap: 12px;
-    min-width: max-content;
-  }
-  .kanban-col {
-    width: 220px;
-    flex-shrink: 0;
-  }
-  .kanban-col-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
+  /* ── KANBAN ── */
+  .kanban-scroll { overflow-x: auto; padding-bottom: 12px; }
+  .kanban-board { display: flex; gap: 11px; min-width: max-content; }
+  .kcol { width: 216px; flex-shrink: 0; }
+  .kcol-head {
+    display: flex; align-items: center; gap: 7px;
+    padding: 9px 11px;
     border-radius: 10px 10px 0 0;
-    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-bottom: none;
   }
-  .kanban-col-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .kanban-col-name {
-    font-size: 12px;
-    font-weight: 600;
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .kanban-count {
-    font-size: 11px;
-    background: rgba(0,0,0,0.08);
-    padding: 1px 7px;
-    border-radius: 20px;
-    font-weight: 600;
-  }
-  .kanban-cards {
+  .kcol-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .kcol-name { font-size: 11px; font-weight: 800; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.2px; }
+  .kcol-count { font-size: 10px; font-weight: 800; background: rgba(0,0,0,0.07); padding: 1px 7px; border-radius: 20px; }
+  .kcol-cards {
     background: var(--cinza-bg);
     border-radius: 0 0 10px 10px;
-    padding: 10px 8px;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    border: 1px solid var(--cinza-borda);
+    border-top: none;
+    padding: 8px 7px;
+    min-height: 180px;
+    display: flex; flex-direction: column; gap: 7px;
   }
 
   .kcard {
     background: white;
     border-radius: 10px;
-    padding: 14px;
+    padding: 13px;
     border: 1px solid var(--cinza-borda);
     cursor: pointer;
     transition: all 0.15s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: var(--shadow-sm);
   }
   .kcard:hover { box-shadow: var(--shadow); border-color: #C8C6C0; transform: translateY(-1px); }
-  .kcard-tipo {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 20px;
-    margin-bottom: 8px;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-  }
-  .tipo-cond { background: #EAF5EC; color: var(--verde); }
-  .tipo-emp { background: #EEF2FF; color: #4338CA; }
-  .tipo-acad { background: #FFF7ED; color: #C2410C; }
-  .kcard-name {
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 4px;
-    color: var(--texto);
-  }
-  .kcard-local {
-    font-size: 12px;
-    color: var(--cinza-texto);
-    margin-bottom: 10px;
-  }
-  .kcard-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    color: var(--cinza-texto);
-  }
-  .kcard-origem {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .origem-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-  }
 
-  /* ═══════════════════════════════════
-     TELA 3 — LOCAIS DISPONÍVEIS
-  ═══════════════════════════════════ */
-  .filtros-bar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    align-items: center;
+  .kcard-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 9px; font-weight: 800;
+    padding: 3px 8px; border-radius: 20px;
+    margin-bottom: 8px; letter-spacing: 0.4px; text-transform: uppercase;
   }
-  .filtro-chip {
-    padding: 7px 14px;
-    border-radius: 20px;
-    border: 1.5px solid var(--cinza-borda);
-    background: white;
-    font-size: 13px;
-    cursor: pointer;
-    color: var(--texto-leve);
-    transition: all 0.15s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .filtro-chip:hover { border-color: var(--verde); color: var(--verde); }
-  .filtro-chip.active { background: var(--verde); color: white; border-color: var(--verde); }
+  .bc { background: var(--verde-bg); color: var(--verde-primary); }
+  .be { background: #EEF2FF; color: #4338CA; }
+  .ba { background: #FFF7ED; color: #C2410C; }
+  .bh { background: #FDF4FF; color: #9333EA; }
+  .bo { background: #F1F5F9; color: #475569; }
 
-  .locais-grid {
+  .kcard-name { font-weight: 800; font-size: 13px; color: var(--texto); margin-bottom: 3px; line-height: 1.3; }
+  .kcard-local { font-size: 11px; color: var(--cinza-texto); margin-bottom: 9px; font-weight: 500; }
+  .kcard-footer { display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: var(--cinza-texto); font-weight: 600; }
+  .kcard-origem { display: inline-flex; align-items: center; gap: 4px; }
+  .orig-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  /* ── LISTA ── */
+  .lista-wrap { background: white; border-radius: 12px; border: 1px solid var(--cinza-borda); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .lista-head {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .local-card {
-    background: white;
-    border-radius: 14px;
-    border: 1px solid var(--cinza-borda);
-    overflow: hidden;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-  .local-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-  .local-card.bloqueado { opacity: 0.65; }
-  .local-card-header {
-    padding: 18px 18px 12px;
-    border-bottom: 1px solid var(--cinza-borda);
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  .local-tipo-badge {
-    font-size: 10px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-  }
-  .local-card-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--texto);
-    margin: 10px 0 4px;
-    padding: 0 18px;
-  }
-  .local-card-endereco {
-    font-size: 12px;
-    color: var(--cinza-texto);
-    padding: 0 18px 14px;
-  }
-  .local-card-info {
-    display: flex;
-    gap: 16px;
-    padding: 12px 18px;
-    background: var(--cinza-bg);
-    border-top: 1px solid var(--cinza-borda);
-  }
-  .lci-item { font-size: 12px; }
-  .lci-label { color: var(--cinza-texto); margin-bottom: 2px; }
-  .lci-val { font-weight: 500; color: var(--texto); }
-  .local-card-footer {
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .btn-absorver {
-    flex: 1;
-    padding: 10px;
-    background: var(--verde);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .btn-absorver:hover { background: var(--verde-escuro); }
-  .btn-absorver.disabled {
-    background: var(--cinza-bg);
-    color: var(--cinza-texto);
-    cursor: not-allowed;
-    border: 1px solid var(--cinza-borda);
-  }
-  .btn-absorver.disabled:hover { background: var(--cinza-bg); }
-
-  /* ═══════════════════════════════════
-     TELA 4 — NOVA INDICAÇÃO
-  ═══════════════════════════════════ */
-  .form-card {
-    background: white;
-    border-radius: 14px;
-    border: 1px solid var(--cinza-borda);
-    padding: 32px;
-    max-width: 640px;
-  }
-  .form-section-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--verde);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1.5px solid var(--verde-bg);
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-  .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-  .form-group-mb { margin-bottom: 16px; }
-  .tipo-selector {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-  .tipo-opt {
-    padding: 10px 8px;
-    border: 1.5px solid var(--cinza-borda);
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.15s;
-    font-size: 12px;
-    color: var(--texto-leve);
-  }
-  .tipo-opt:hover { border-color: var(--verde); }
-  .tipo-opt.selected { border-color: var(--verde); background: var(--verde-bg); color: var(--verde); font-weight: 500; }
-  .tipo-opt-icon { font-size: 20px; margin-bottom: 4px; }
-  .campo-extra {
-    background: var(--verde-bg);
-    border: 1px solid rgba(45,122,58,0.2);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 20px;
-    font-size: 13px;
-    color: var(--verde-escuro);
-  }
-  .campo-extra strong { display: block; margin-bottom: 10px; }
-  .btn-row { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
-
-  /* ═══════════════════════════════════
-     TELA 5 — PIPELINE LISTA
-  ═══════════════════════════════════ */
-  .lista-table {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid var(--cinza-borda);
-    overflow: hidden;
-  }
-  .lista-thead {
-    display: grid;
-    grid-template-columns: 2fr 1.2fr 1fr 1.5fr 1fr 80px;
-    gap: 0;
-    padding: 12px 20px;
+    grid-template-columns: 2fr 1.1fr 1fr 1.6fr 1fr 72px;
+    padding: 11px 20px;
     background: var(--cinza-bg);
     border-bottom: 1px solid var(--cinza-borda);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--cinza-texto);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 10px; font-weight: 800; color: var(--cinza-texto);
+    text-transform: uppercase; letter-spacing: 0.6px;
   }
   .lista-row {
     display: grid;
-    grid-template-columns: 2fr 1.2fr 1fr 1.5fr 1fr 80px;
-    padding: 14px 20px;
+    grid-template-columns: 2fr 1.1fr 1fr 1.6fr 1fr 72px;
+    padding: 13px 20px;
     border-bottom: 1px solid var(--cinza-borda);
     align-items: center;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
     transition: background 0.1s;
   }
   .lista-row:last-child { border-bottom: none; }
-  .lista-row:hover { background: var(--cinza-bg); }
-  .lista-row-name { font-weight: 500; }
-  .lista-row-sub { font-size: 12px; color: var(--cinza-texto); }
-  .status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .lista-row:hover { background: var(--verde-bg2); }
+  .lr-name { font-weight: 700; color: var(--texto); }
+  .lr-sub { font-size: 11px; color: var(--cinza-texto); font-weight: 500; }
 
-  /* Mapa placeholder */
-  .mapa-placeholder {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid var(--cinza-borda);
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: var(--cinza-texto);
-    font-size: 15px;
-    position: relative;
-    overflow: hidden;
+  .spill {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 9px; border-radius: 20px;
+    font-size: 10px; font-weight: 800;
   }
-  .mapa-grid {
-    position: absolute;
-    inset: 0;
+  .sp-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+  /* ── LOCAIS CARDS ── */
+  .filtros {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; align-items: center;
+  }
+  .fchip {
+    padding: 6px 14px; border-radius: 20px;
+    border: 1.5px solid var(--cinza-borda);
+    background: white; font-size: 12px; font-weight: 700;
+    cursor: pointer; color: var(--texto-leve); transition: all 0.15s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .fchip:hover { border-color: var(--verde-primary); color: var(--verde-primary); }
+  .fchip.active { background: var(--verde-primary); color: white; border-color: var(--verde-primary); }
+
+  .locais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+  .lcard {
+    background: white; border-radius: 16px;
+    border: 1px solid var(--cinza-borda);
+    overflow: hidden; transition: all 0.2s; cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+  .lcard:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .lcard.blocked { opacity: 0.6; }
+
+  .lcard-top {
+    padding: 16px 16px 12px;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    border-bottom: 1px solid var(--cinza-borda);
+  }
+  .lcard-name { font-weight: 800; font-size: 15px; color: var(--texto); margin: 10px 0 3px; padding: 0 16px; line-height: 1.3; }
+  .lcard-addr { font-size: 11px; color: var(--cinza-texto); padding: 0 16px 13px; font-weight: 500; }
+
+  .lcard-info {
+    display: flex; gap: 0;
+    background: var(--off-white);
+    border-top: 1px solid var(--cinza-borda);
+  }
+  .lci { flex: 1; padding: 10px 14px; border-right: 1px solid var(--cinza-borda); }
+  .lci:last-child { border-right: none; }
+  .lci-l { font-size: 9px; color: var(--cinza-texto); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+  .lci-v { font-size: 12px; font-weight: 700; color: var(--texto); }
+
+  .lcard-foot { padding: 12px 16px; display: flex; gap: 8px; align-items: center; }
+  .btn-absorver {
+    flex: 1; padding: 10px; background: var(--verde-primary); color: white; border: none;
+    border-radius: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .btn-absorver:hover { background: var(--verde-escuro); }
+  .btn-absorver.off {
+    background: var(--cinza-bg); color: var(--cinza-texto);
+    cursor: not-allowed; border: 1px solid var(--cinza-borda);
+  }
+
+  /* Alerta */
+  .alerta {
+    background: #FFFBEB;
+    border: 1px solid rgba(234,88,12,0.3);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; color: #92400E;
+  }
+
+  /* ── MAPA PLACEHOLDER ── */
+  .mapa-box {
+    background: white; border-radius: 14px;
+    border: 1px solid var(--cinza-borda);
+    height: 420px; position: relative; overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .mapa-grid-bg {
+    position: absolute; inset: 0;
     background-image:
       linear-gradient(var(--cinza-borda) 1px, transparent 1px),
       linear-gradient(90deg, var(--cinza-borda) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.5;
-  }
-  .mapa-pins {
-    position: absolute;
-    inset: 0;
+    background-size: 44px 44px; opacity: 0.4;
   }
   .mapa-pin {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
+    position: absolute; display: flex; flex-direction: column; align-items: center; cursor: pointer;
+    transition: transform 0.15s;
   }
-  .mapa-pin-bubble {
-    background: var(--verde);
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 8px;
-    white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  .mapa-pin:hover { transform: translateY(-3px); }
+  .mapa-bubble {
+    background: var(--verde-primary); color: white;
+    font-size: 11px; font-weight: 700;
+    padding: 5px 10px; border-radius: 8px; white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   }
-  .mapa-pin-bubble.amarelo { background: var(--amarelo-escuro); }
+  .mapa-bubble.am { background: #B45309; }
   .mapa-pin::after {
-    content: '';
-    width: 0; height: 0;
+    content: ''; width: 0; height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 7px solid var(--verde);
+    border-top: 7px solid var(--verde-primary);
   }
-  .mapa-pin.amarelo::after { border-top-color: var(--amarelo-escuro); }
-  .mapa-overlay-label {
-    position: relative;
-    z-index: 2;
-    background: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--cinza-borda);
-    font-size: 13px;
-    color: var(--texto-leve);
-    display: flex;
+  .mapa-pin.am::after { border-top-color: #B45309; }
+  .mapa-center {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    background: white; padding: 8px 16px; border-radius: 8px;
+    border: 1px solid var(--cinza-borda); font-size: 12px;
+    color: var(--texto-leve); font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .mapa-legend {
+    display: flex; gap: 16px; margin-top: 10px;
+    font-size: 11px; color: var(--cinza-texto); font-weight: 600;
     align-items: center;
-    gap: 8px;
   }
+  .mapa-leg-item { display: flex; align-items: center; gap: 6px; }
+  .mapa-leg-dot { width: 10px; height: 10px; border-radius: 2px; }
 
+  /* ── FORM INDICAÇÃO ── */
+  .form-card {
+    background: white; border-radius: 16px;
+    border: 1px solid var(--cinza-borda);
+    padding: 32px; max-width: 660px;
+    box-shadow: var(--shadow-sm);
+  }
+  .form-sec {
+    font-size: 10px; font-weight: 800; color: var(--verde-primary);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--verde-bg);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .form-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .fgmb { margin-bottom: 14px; }
+
+  .tipo-sel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 24px; }
+  .tipo-opt {
+    padding: 12px 6px; border: 2px solid var(--cinza-borda);
+    border-radius: 12px; text-align: center; cursor: pointer;
+    transition: all 0.15s; font-size: 11px; font-weight: 700; color: var(--texto-leve);
+    font-family: 'Nunito', sans-serif;
+  }
+  .tipo-opt:hover { border-color: var(--verde-vivo); }
+  .tipo-opt.sel { border-color: var(--verde-primary); background: var(--verde-bg); color: var(--verde-primary); }
+  .tipo-opt-ic { font-size: 22px; margin-bottom: 5px; }
+
+  .campo-extra {
+    background: var(--verde-bg);
+    border: 1.5px solid rgba(79,193,75,0.4);
+    border-radius: 12px; padding: 16px; margin-bottom: 20px;
+  }
+  .campo-extra strong { display: block; font-size: 11px; font-weight: 800; color: var(--verde-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+
+  .btn-row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; border-top: 1px solid var(--cinza-borda); padding-top: 20px; }
+
+  /* Barra de progresso do form */
+  .form-progress {
+    display: flex; gap: 0; margin-bottom: 28px;
+    background: var(--cinza-bg); border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--cinza-borda);
+  }
+  .fp-step {
+    flex: 1; padding: 8px 12px; text-align: center;
+    font-size: 11px; font-weight: 700; color: var(--cinza-texto);
+    border-right: 1px solid var(--cinza-borda);
+    display: flex; align-items: center; gap: 6px; justify-content: center;
+  }
+  .fp-step:last-child { border-right: none; }
+  .fp-step.done { background: var(--verde-bg); color: var(--verde-primary); }
+  .fp-step.active { background: var(--verde-primary); color: white; }
+  .fp-num {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 900;
+    background: rgba(255,255,255,0.25);
+  }
+  .fp-step.done .fp-num { background: var(--verde-primary); color: white; font-size: 10px; }
+  .fp-step.active .fp-num { background: rgba(255,255,255,0.3); }
 </style>
 </head>
 <body>
 
-<!-- ── NAV TABS (controle das telas) ── -->
+<!-- NAV TABS -->
 <div class="nav-tabs">
-  <div class="nav-brand">Seo Juca</div>
-  <div class="nav-tab active" onclick="showScreen('login')">Login</div>
-  <div class="nav-tab" onclick="showScreen('dashboard')">Dashboard</div>
-  <div class="nav-tab" onclick="showScreen('pipeline-kanban')">Pipeline — Kanban</div>
-  <div class="nav-tab" onclick="showScreen('pipeline-lista')">Pipeline — Lista</div>
-  <div class="nav-tab" onclick="showScreen('locais-cards')">Locais — Cards</div>
-  <div class="nav-tab" onclick="showScreen('locais-mapa')">Locais — Mapa</div>
-  <div class="nav-tab" onclick="showScreen('nova-indicacao')">Nova Indicação</div>
+  <div class="nav-brand">
+    <div class="nav-brand-face">🛒</div>
+    <div>
+      <div class="nav-brand-text">mercadinho <span>do seo juca</span></div>
+      <div class="nav-brand-sub">SISTEMA DE INDICAÇÕES</div>
+    </div>
+  </div>
+  <div class="nav-tab active"      onclick="go('welcome')">Boas-vindas</div>
+  <div class="nav-tab"             onclick="go('login')">Login</div>
+  <div class="nav-tab"             onclick="go('dashboard')">Dashboard</div>
+  <div class="nav-tab"             onclick="go('kanban')">Pipeline — Kanban</div>
+  <div class="nav-tab"             onclick="go('lista')">Pipeline — Lista</div>
+  <div class="nav-tab"             onclick="go('locais-cards')">Locais — Cards</div>
+  <div class="nav-tab"             onclick="go('locais-mapa')">Locais — Mapa</div>
+  <div class="nav-tab"             onclick="go('nova')">Nova Indicação</div>
   <div class="nav-right">
     <div class="nav-user">
       <div class="nav-avatar">RF</div>
-      Ricardo F. — Franqueado
+      Ricardo F.
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     TELA 1 — LOGIN
-═══════════════════════════════════════ -->
-<div id="screen-login" class="screen active login-screen">
-  <div class="login-left">
-    <div class="login-logo">Seo <span>Juca</span></div>
-    <div class="login-tagline">Sistema de Indicações</div>
-    <div class="login-ilustracao">
-      <div class="login-stat">
-        <div class="login-stat-icon">🏢</div>
-        <div>
-          <div class="login-stat-num">247</div>
-          <div class="login-stat-label">Indicações este mês</div>
+<!-- ════════════════════════════════════════
+     TELA 1A — BEM-VINDO DE VOLTA
+════════════════════════════════════════ -->
+<div id="screen-welcome" class="screen active pattern-bg welcome-screen" style="background-color:var(--verde-escuro)">
+  <div class="welcome-card">
+    <div class="welcome-pattern"></div>
+    <div class="welcome-body">
+      <div class="welcome-logo-circle">🛒</div>
+      <div class="welcome-title">Bem-vindo de<br>volta ao <span>Seo Juca</span></div>
+      <div class="welcome-sub">Sua plataforma de indicações de locais<br>para expansão da rede</div>
+
+      <div class="welcome-stats">
+        <div class="wstat">
+          <div class="wstat-num">247</div>
+          <div class="wstat-label">Indicações<br>este mês</div>
+        </div>
+        <div class="wstat">
+          <div class="wstat-num">38</div>
+          <div class="wstat-label">Fechamentos<br>no ano</div>
+        </div>
+        <div class="wstat">
+          <div class="wstat-num">12</div>
+          <div class="wstat-label">Locais<br>disponíveis</div>
         </div>
       </div>
-      <div class="login-stat">
-        <div class="login-stat-icon">✅</div>
-        <div>
-          <div class="login-stat-num">38</div>
-          <div class="login-stat-label">Fechamentos no ano</div>
-        </div>
-      </div>
-      <div class="login-stat">
-        <div class="login-stat-icon">🌱</div>
-        <div>
-          <div class="login-stat-num">12</div>
-          <div class="login-stat-label">Locais disponíveis agora</div>
-        </div>
-      </div>
+
+      <button class="btn-welcome" onclick="go('login')">
+        Acessar minha conta →
+      </button>
     </div>
   </div>
-  <div class="login-right">
-    <div class="login-title">Bem-vindo de volta</div>
-    <div class="login-sub">Acesse com as credenciais fornecidas pela franqueadora</div>
+</div>
+
+<!-- ════════════════════════════════════════
+     TELA 1B — LOGIN
+════════════════════════════════════════ -->
+<div id="screen-login" class="screen login-screen">
+  <div class="login-card">
+    <div class="login-back" onclick="go('welcome')">← Voltar</div>
+    <div class="login-header">
+      <div class="login-header-icon">🔐</div>
+      <div>
+        <div class="login-title">Entrar na conta</div>
+        <div class="login-sub">Use as credenciais fornecidas pela franqueadora</div>
+      </div>
+    </div>
+
     <div class="form-group">
       <label class="form-label">E-mail</label>
       <input class="form-input" type="email" placeholder="seu@email.com.br" value="ricardo@franqueado.com">
@@ -889,165 +822,142 @@
       <label class="form-label">Senha</label>
       <input class="form-input" type="password" placeholder="••••••••" value="12345678">
     </div>
-    <button class="btn-login" onclick="showScreen('dashboard')">Entrar no sistema</button>
-    <div class="login-footer">Problemas com acesso? Entre em contato com a franqueadora.</div>
+
+    <button class="btn-login" onclick="go('dashboard')">
+      Entrar no sistema →
+    </button>
+
+    <div class="login-footer">
+      Problemas com o acesso? Entre em contato<br>com a franqueadora para redefinir suas credenciais.
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      TELA 2 — DASHBOARD
-═══════════════════════════════════════ -->
+════════════════════════════════════════ -->
 <div id="screen-dashboard" class="screen">
   <div class="dash-layout">
     <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-franquias">
-          <div class="sf-label">Franquias disponíveis</div>
-          <div class="sf-num">2</div>
-          <div class="sf-sub">de 5 contratadas</div>
-        </div>
+      <div class="sb-franquias">
+        <div class="sf-label">Franquias disponíveis</div>
+        <div class="sf-num">2</div>
+        <div class="sf-sub">de 5 contratadas</div>
       </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Menu</div>
-        <div class="sidebar-item active" onclick="showScreen('dashboard')">
-          <span class="icon">📊</span> Início
-        </div>
-        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')">
-          <span class="icon">📋</span> Meu pipeline
-          <span class="sidebar-badge">7</span>
-        </div>
-        <div class="sidebar-item" onclick="showScreen('locais-cards')">
-          <span class="icon">📍</span> Locais disponíveis
-          <span class="sidebar-badge">12</span>
-        </div>
-        <div class="sidebar-item" onclick="showScreen('nova-indicacao')">
-          <span class="icon">➕</span> Nova indicação
-        </div>
+      <div class="sb-section">
+        <div class="sb-label">Menu</div>
+        <div class="sb-item active"         onclick="go('dashboard')"><span class="sb-icon">📊</span> Início</div>
+        <div class="sb-item"               onclick="go('kanban')"><span class="sb-icon">📋</span> Meu pipeline <span class="sb-badge">7</span></div>
+        <div class="sb-item"               onclick="go('locais-cards')"><span class="sb-icon">📍</span> Locais disponíveis <span class="sb-badge">12</span></div>
+        <div class="sb-item"               onclick="go('nova')"><span class="sb-icon">➕</span> Nova indicação</div>
       </div>
     </aside>
     <main class="main-content">
       <div class="page-header">
-        <div>
-          <div class="page-title">Olá, Ricardo 👋</div>
-          <div class="page-subtitle">Veja o resumo das suas indicações</div>
-        </div>
-        <button class="btn-primary" onclick="showScreen('nova-indicacao')">+ Nova indicação</button>
+        <div><div class="page-title">Olá, Ricardo 👋</div><div class="page-sub">Veja o resumo das suas indicações</div></div>
+        <button class="btn-primary" onclick="go('nova')">+ Nova indicação</button>
       </div>
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-card-label">Total no pipeline</div>
-          <div class="stat-card-num">7</div>
-          <div class="stat-card-sub">indicações ativas</div>
+          <div class="stat-label">Total no pipeline</div>
+          <div class="stat-num">7</div>
+          <div class="stat-sub">indicações ativas</div>
         </div>
         <div class="stat-card">
-          <div class="stat-card-label">Em contato</div>
-          <div class="stat-card-num">3</div>
-          <div class="stat-card-sub"><span class="stat-card-dot" style="background:#2563EB"></span>aguardando retorno</div>
+          <div class="stat-label">Em contato</div>
+          <div class="stat-num">3</div>
+          <div class="stat-sub"><span class="stat-dot" style="background:#2563EB"></span>aguardando retorno</div>
         </div>
         <div class="stat-card">
-          <div class="stat-card-label">Proposta enviada</div>
-          <div class="stat-card-num">2</div>
-          <div class="stat-card-sub"><span class="stat-card-dot" style="background:#EA580C"></span>em negociação</div>
+          <div class="stat-label">Proposta enviada</div>
+          <div class="stat-num">2</div>
+          <div class="stat-sub"><span class="stat-dot" style="background:#EA580C"></span>em negociação</div>
         </div>
         <div class="stat-card">
-          <div class="stat-card-label">Fechados</div>
-          <div class="stat-card-num" style="color:var(--verde)">3</div>
-          <div class="stat-card-sub"><span class="stat-card-dot" style="background:var(--verde)"></span>este ano</div>
+          <div class="stat-label">Fechados</div>
+          <div class="stat-num" style="color:var(--verde-primary)">3</div>
+          <div class="stat-sub"><span class="stat-dot" style="background:var(--verde-primary)"></span>este ano</div>
         </div>
       </div>
 
-      <!-- Preview pipeline -->
-      <div class="section-header">
-        <div class="section-title">Pipeline recente</div>
-        <button class="btn-secondary" onclick="showScreen('pipeline-kanban')">Ver tudo →</button>
+      <div class="sec-header">
+        <div class="sec-title">Pipeline recente</div>
+        <button class="btn-secondary" onclick="go('kanban')">Ver tudo →</button>
       </div>
-
-      <div style="background:white; border-radius:12px; border:1px solid var(--cinza-borda); overflow:hidden; margin-bottom:28px;">
-        <div class="lista-thead">
-          <div>Local</div><div>Tipo</div><div>Cidade</div><div>Etapa</div><div>Origem</div><div></div>
+      <div class="lista-wrap" style="margin-bottom:24px">
+        <div class="lista-head"><div>Local</div><div>Tipo</div><div>Cidade</div><div>Etapa</div><div>Origem</div><div></div></div>
+        <div class="lista-row">
+          <div><div class="lr-name">Cond. Parque das Flores</div><div class="lr-sub">280 apartamentos</div></div>
+          <div><span class="kcard-badge bc">Condomínio</span></div>
+          <div style="font-size:13px;font-weight:600">Campinas/SP</div>
+          <div><span class="spill" style="background:#EEF2FF;color:#4338CA"><span class="sp-dot" style="background:#4338CA"></span>1ª conversa</span></div>
+          <div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div>
+          <div><button class="btn-secondary" style="padding:6px 10px;font-size:11px">Ver</button></div>
         </div>
         <div class="lista-row">
-          <div><div class="lista-row-name">Cond. Parque das Flores</div><div class="lista-row-sub">280 aptos</div></div>
-          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
-          <div>Campinas/SP</div>
-          <div><span class="status-pill" style="background:#EEF2FF;color:#4338CA"><span class="status-dot" style="background:#4338CA"></span>1ª conversa</span></div>
-          <div><span style="font-size:12px;color:var(--cinza-texto)">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+          <div><div class="lr-name">Empresa TechSul</div><div class="lr-sub">450 funcionários</div></div>
+          <div><span class="kcard-badge be">Empresa</span></div>
+          <div style="font-size:13px;font-weight:600">Campinas/SP</div>
+          <div><span class="spill" style="background:#FFF7ED;color:#C2410C"><span class="sp-dot" style="background:#C2410C"></span>Proposta</span></div>
+          <div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div>
+          <div><button class="btn-secondary" style="padding:6px 10px;font-size:11px">Ver</button></div>
         </div>
         <div class="lista-row">
-          <div><div class="lista-row-name">Empresa TechSul</div><div class="lista-row-sub">450 funcionários</div></div>
-          <div><span class="kcard-tipo tipo-emp">Empresa</span></div>
-          <div>Campinas/SP</div>
-          <div><span class="status-pill" style="background:#FFF7ED;color:#C2410C"><span class="status-dot" style="background:#C2410C"></span>Proposta</span></div>
-          <div><span style="font-size:12px;color:var(--cinza-texto)">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Cond. Jardim Europa</div><div class="lista-row-sub">180 aptos — da franqueadora</div></div>
-          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
-          <div>Jundiaí/SP</div>
-          <div><span class="status-pill" style="background:#EAF5EC;color:var(--verde)"><span class="status-dot" style="background:var(--verde)"></span>Tentativa de contato</span></div>
-          <div><span style="font-size:12px;color:var(--cinza-texto)">🟡 Franqueadora</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
+          <div><div class="lr-name">Cond. Jardim Europa</div><div class="lr-sub">Da franqueadora · 180 aptos</div></div>
+          <div><span class="kcard-badge bc">Condomínio</span></div>
+          <div style="font-size:13px;font-weight:600">Jundiaí/SP</div>
+          <div><span class="spill" style="background:var(--verde-bg);color:var(--verde-primary)"><span class="sp-dot" style="background:var(--verde-primary)"></span>Tent. contato</span></div>
+          <div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟡 Franqueadora</div>
+          <div><button class="btn-secondary" style="padding:6px 10px;font-size:11px">Ver</button></div>
         </div>
       </div>
     </main>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      TELA 3 — PIPELINE KANBAN
-═══════════════════════════════════════ -->
-<div id="screen-pipeline-kanban" class="screen">
+════════════════════════════════════════ -->
+<div id="screen-kanban" class="screen">
   <div class="dash-layout">
     <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-franquias">
-          <div class="sf-label">Franquias disponíveis</div>
-          <div class="sf-num">2</div>
-          <div class="sf-sub">de 5 contratadas</div>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Menu</div>
-        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
-        <div class="sidebar-item active" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
-        <div class="sidebar-item" onclick="showScreen('locais-cards')"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
-        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      <div class="sb-franquias"><div class="sf-label">Franquias disponíveis</div><div class="sf-num">2</div><div class="sf-sub">de 5 contratadas</div></div>
+      <div class="sb-section">
+        <div class="sb-label">Menu</div>
+        <div class="sb-item" onclick="go('dashboard')"><span class="sb-icon">📊</span> Início</div>
+        <div class="sb-item active"><span class="sb-icon">📋</span> Meu pipeline <span class="sb-badge">7</span></div>
+        <div class="sb-item" onclick="go('locais-cards')"><span class="sb-icon">📍</span> Locais disponíveis <span class="sb-badge">12</span></div>
+        <div class="sb-item" onclick="go('nova')"><span class="sb-icon">➕</span> Nova indicação</div>
       </div>
     </aside>
     <main class="main-content">
       <div class="page-header">
-        <div>
-          <div class="page-title">Meu pipeline</div>
-          <div class="page-subtitle">7 indicações ativas</div>
-        </div>
+        <div><div class="page-title">Meu pipeline</div><div class="page-sub">7 indicações ativas</div></div>
         <div style="display:flex;gap:10px;align-items:center">
           <div class="view-toggle">
             <button class="vt-btn active">⊞ Kanban</button>
-            <button class="vt-btn" onclick="showScreen('pipeline-lista')">☰ Lista</button>
+            <button class="vt-btn" onclick="go('lista')">☰ Lista</button>
           </div>
-          <button class="btn-primary" onclick="showScreen('nova-indicacao')">+ Nova indicação</button>
+          <button class="btn-primary" onclick="go('nova')">+ Nova indicação</button>
         </div>
       </div>
-
       <div class="kanban-scroll">
         <div class="kanban-board">
 
           <!-- Nova indicação -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#F3F2EE">
-              <div class="kanban-col-dot" style="background:var(--pipeline-1)"></div>
-              <div class="kanban-col-name" style="color:#374151">Nova indicação</div>
-              <div class="kanban-count" style="color:#374151">1</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#F3F4F6;border-color:#E5E7EB">
+              <div class="kcol-dot" style="background:#6B7280"></div>
+              <div class="kcol-name" style="color:#374151">Nova indicação</div>
+              <div class="kcol-count" style="color:#374151">1</div>
             </div>
-            <div class="kanban-cards">
+            <div class="kcol-cards">
               <div class="kcard">
-                <div class="kcard-tipo tipo-acad">🏋️ Academia</div>
+                <div class="kcard-badge ba">🏋️ Academia</div>
                 <div class="kcard-name">Smart Fit Bonfim</div>
                 <div class="kcard-local">Campinas/SP</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>hoje</span>
                 </div>
               </div>
@@ -1055,28 +965,28 @@
           </div>
 
           <!-- Tentativa de contato -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#EFF6FF">
-              <div class="kanban-col-dot" style="background:var(--pipeline-2)"></div>
-              <div class="kanban-col-name" style="color:#1D4ED8">Tentativa contato</div>
-              <div class="kanban-count" style="color:#1D4ED8">2</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#EFF6FF;border-color:#BFDBFE">
+              <div class="kcol-dot" style="background:#2563EB"></div>
+              <div class="kcol-name" style="color:#1D4ED8">Tentativa contato</div>
+              <div class="kcol-count" style="color:#1D4ED8">2</div>
             </div>
-            <div class="kanban-cards">
+            <div class="kcol-cards">
               <div class="kcard">
-                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-badge bc">🏢 Condomínio</div>
                 <div class="kcard-name">Cond. Jardim Europa</div>
                 <div class="kcard-local">Jundiaí/SP · 180 aptos</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--amarelo-escuro)"></span>Franqueadora</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:#B45309"></span>Franqueadora</span>
                   <span>3 dias</span>
                 </div>
               </div>
               <div class="kcard">
-                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-badge bc">🏢 Condomínio</div>
                 <div class="kcard-name">Cond. Bosque Verde</div>
                 <div class="kcard-local">Campinas/SP · 95 aptos</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>5 dias</span>
                 </div>
               </div>
@@ -1084,19 +994,19 @@
           </div>
 
           <!-- Contato feito -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#ECFEFF">
-              <div class="kanban-col-dot" style="background:var(--pipeline-3)"></div>
-              <div class="kanban-col-name" style="color:#0E7490">Contato feito</div>
-              <div class="kanban-count" style="color:#0E7490">1</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#ECFEFF;border-color:#A5F3FC">
+              <div class="kcol-dot" style="background:#0891B2"></div>
+              <div class="kcol-name" style="color:#0E7490">Contato feito</div>
+              <div class="kcol-count" style="color:#0E7490">1</div>
             </div>
-            <div class="kanban-cards">
+            <div class="kcol-cards">
               <div class="kcard">
-                <div class="kcard-tipo tipo-emp">🏭 Empresa</div>
+                <div class="kcard-badge be">🏭 Empresa</div>
                 <div class="kcard-name">Indústria Metalbras</div>
                 <div class="kcard-local">Sumaré/SP</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>1 sem</span>
                 </div>
               </div>
@@ -1104,19 +1014,19 @@
           </div>
 
           <!-- 1ª conversa -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#F0FDF4">
-              <div class="kanban-col-dot" style="background:var(--pipeline-4)"></div>
-              <div class="kanban-col-name" style="color:#15803D">1ª conversa</div>
-              <div class="kanban-count" style="color:#15803D">1</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#F0FDF4;border-color:#BBF7D0">
+              <div class="kcol-dot" style="background:#059669"></div>
+              <div class="kcol-name" style="color:#15803D">1ª conversa</div>
+              <div class="kcol-count" style="color:#15803D">1</div>
             </div>
-            <div class="kanban-cards">
+            <div class="kcol-cards">
               <div class="kcard">
-                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-badge bc">🏢 Condomínio</div>
                 <div class="kcard-name">Cond. Parque das Flores</div>
                 <div class="kcard-local">Campinas/SP · 280 aptos</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>2 sem</span>
                 </div>
               </div>
@@ -1124,19 +1034,19 @@
           </div>
 
           <!-- Visita técnica -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#F5F3FF">
-              <div class="kanban-col-dot" style="background:var(--pipeline-5)"></div>
-              <div class="kanban-col-name" style="color:#6D28D9">Visita técnica</div>
-              <div class="kanban-count" style="color:#6D28D9">1</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#F5F3FF;border-color:#DDD6FE">
+              <div class="kcol-dot" style="background:#7C3AED"></div>
+              <div class="kcol-name" style="color:#6D28D9">Visita técnica</div>
+              <div class="kcol-count" style="color:#6D28D9">1</div>
             </div>
-            <div class="kanban-cards">
+            <div class="kcol-cards">
               <div class="kcard">
-                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-badge bc">🏢 Condomínio</div>
                 <div class="kcard-name">Cond. Solar das Palmeiras</div>
                 <div class="kcard-local">Valinhos/SP · 320 aptos</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>3 sem</span>
                 </div>
               </div>
@@ -1144,28 +1054,28 @@
           </div>
 
           <!-- Proposta -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#FFF7ED">
-              <div class="kanban-col-dot" style="background:var(--pipeline-6)"></div>
-              <div class="kanban-col-name" style="color:#C2410C">Proposta</div>
-              <div class="kanban-count" style="color:#C2410C">2</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#FFF7ED;border-color:#FED7AA">
+              <div class="kcol-dot" style="background:#EA580C"></div>
+              <div class="kcol-name" style="color:#C2410C">Proposta</div>
+              <div class="kcol-count" style="color:#C2410C">2</div>
             </div>
-            <div class="kanban-cards">
+            <div class="kcol-cards">
               <div class="kcard">
-                <div class="kcard-tipo tipo-emp">🏭 Empresa</div>
+                <div class="kcard-badge be">🏭 Empresa</div>
                 <div class="kcard-name">Empresa TechSul</div>
                 <div class="kcard-local">Campinas/SP · 450 func.</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>1 mês</span>
                 </div>
               </div>
               <div class="kcard">
-                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+                <div class="kcard-badge bc">🏢 Condomínio</div>
                 <div class="kcard-name">Cond. Alto da Boa Vista</div>
                 <div class="kcard-local">Americana/SP · 140 aptos</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>5 sem</span>
                 </div>
               </div>
@@ -1173,28 +1083,28 @@
           </div>
 
           <!-- Fechado -->
-          <div class="kanban-col">
-            <div class="kanban-col-header" style="background:#F0FDF4">
-              <div class="kanban-col-dot" style="background:var(--pipeline-7)"></div>
-              <div class="kanban-col-name" style="color:#15803D">✓ Fechado</div>
-              <div class="kanban-count" style="color:#15803D">3</div>
+          <div class="kcol">
+            <div class="kcol-head" style="background:#F0FDF4;border-color:#86EFAC">
+              <div class="kcol-dot" style="background:#16A34A"></div>
+              <div class="kcol-name" style="color:#15803D">✓ Fechado</div>
+              <div class="kcol-count" style="color:#15803D">3</div>
             </div>
-            <div class="kanban-cards">
-              <div class="kcard" style="border-left:3px solid var(--verde)">
-                <div class="kcard-tipo tipo-cond">🏢 Condomínio</div>
+            <div class="kcol-cards">
+              <div class="kcard" style="border-left:3px solid var(--verde-primary)">
+                <div class="kcard-badge bc">🏢 Condomínio</div>
                 <div class="kcard-name">Cond. Vista Alegre</div>
                 <div class="kcard-local">Campinas/SP · 200 aptos</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--verde)"></span>Própria</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:var(--verde-primary)"></span>Própria</span>
                   <span>2 meses</span>
                 </div>
               </div>
-              <div class="kcard" style="border-left:3px solid var(--amarelo-escuro)">
-                <div class="kcard-tipo tipo-emp">🏭 Empresa</div>
+              <div class="kcard" style="border-left:3px solid #B45309">
+                <div class="kcard-badge be">🏭 Empresa</div>
                 <div class="kcard-name">Grupo Camargo</div>
                 <div class="kcard-local">Hortolândia/SP</div>
                 <div class="kcard-footer">
-                  <span class="kcard-origem"><span class="origem-dot" style="background:var(--amarelo-escuro)"></span>Franqueadora</span>
+                  <span class="kcard-origem"><span class="orig-dot" style="background:#B45309"></span>Franqueadora</span>
                   <span>3 meses</span>
                 </div>
               </div>
@@ -1207,326 +1117,205 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      TELA 4 — PIPELINE LISTA
-═══════════════════════════════════════ -->
-<div id="screen-pipeline-lista" class="screen">
+════════════════════════════════════════ -->
+<div id="screen-lista" class="screen">
   <div class="dash-layout">
     <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-franquias">
-          <div class="sf-label">Franquias disponíveis</div>
-          <div class="sf-num">2</div>
-          <div class="sf-sub">de 5 contratadas</div>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Menu</div>
-        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
-        <div class="sidebar-item active"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
-        <div class="sidebar-item" onclick="showScreen('locais-cards')"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
-        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      <div class="sb-franquias"><div class="sf-label">Franquias disponíveis</div><div class="sf-num">2</div><div class="sf-sub">de 5 contratadas</div></div>
+      <div class="sb-section">
+        <div class="sb-label">Menu</div>
+        <div class="sb-item" onclick="go('dashboard')"><span class="sb-icon">📊</span> Início</div>
+        <div class="sb-item active"><span class="sb-icon">📋</span> Meu pipeline <span class="sb-badge">7</span></div>
+        <div class="sb-item" onclick="go('locais-cards')"><span class="sb-icon">📍</span> Locais disponíveis <span class="sb-badge">12</span></div>
+        <div class="sb-item" onclick="go('nova')"><span class="sb-icon">➕</span> Nova indicação</div>
       </div>
     </aside>
     <main class="main-content">
       <div class="page-header">
-        <div>
-          <div class="page-title">Meu pipeline</div>
-          <div class="page-subtitle">7 indicações ativas</div>
-        </div>
+        <div><div class="page-title">Meu pipeline</div><div class="page-sub">7 indicações ativas</div></div>
         <div style="display:flex;gap:10px;align-items:center">
           <div class="view-toggle">
-            <button class="vt-btn" onclick="showScreen('pipeline-kanban')">⊞ Kanban</button>
+            <button class="vt-btn" onclick="go('kanban')">⊞ Kanban</button>
             <button class="vt-btn active">☰ Lista</button>
           </div>
-          <button class="btn-primary" onclick="showScreen('nova-indicacao')">+ Nova indicação</button>
+          <button class="btn-primary" onclick="go('nova')">+ Nova indicação</button>
         </div>
       </div>
-      <div class="lista-table">
-        <div class="lista-thead">
-          <div>Local</div><div>Tipo</div><div>Cidade</div><div>Etapa</div><div>Origem</div><div></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Smart Fit Bonfim</div><div class="lista-row-sub">Academia</div></div>
-          <div><span class="kcard-tipo tipo-acad">Academia</span></div>
-          <div>Campinas/SP</div>
-          <div><span class="status-pill" style="background:#F3F4F6;color:#374151"><span class="status-dot" style="background:#6B7280"></span>Nova indicação</span></div>
-          <div><span style="font-size:12px">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Cond. Jardim Europa</div><div class="lista-row-sub">180 apartamentos</div></div>
-          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
-          <div>Jundiaí/SP</div>
-          <div><span class="status-pill" style="background:#EFF6FF;color:#1D4ED8"><span class="status-dot" style="background:#2563EB"></span>Tentativa contato</span></div>
-          <div><span style="font-size:12px">🟡 Franqueadora</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Cond. Bosque Verde</div><div class="lista-row-sub">95 apartamentos</div></div>
-          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
-          <div>Campinas/SP</div>
-          <div><span class="status-pill" style="background:#EFF6FF;color:#1D4ED8"><span class="status-dot" style="background:#2563EB"></span>Tentativa contato</span></div>
-          <div><span style="font-size:12px">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Indústria Metalbras</div><div class="lista-row-sub">Empresa industrial</div></div>
-          <div><span class="kcard-tipo tipo-emp">Empresa</span></div>
-          <div>Sumaré/SP</div>
-          <div><span class="status-pill" style="background:#ECFEFF;color:#0E7490"><span class="status-dot" style="background:#0891B2"></span>Contato feito</span></div>
-          <div><span style="font-size:12px">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Cond. Parque das Flores</div><div class="lista-row-sub">280 apartamentos</div></div>
-          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
-          <div>Campinas/SP</div>
-          <div><span class="status-pill" style="background:#F0FDF4;color:#15803D"><span class="status-dot" style="background:#059669"></span>1ª conversa</span></div>
-          <div><span style="font-size:12px">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Cond. Solar das Palmeiras</div><div class="lista-row-sub">320 apartamentos</div></div>
-          <div><span class="kcard-tipo tipo-cond">Condomínio</span></div>
-          <div>Valinhos/SP</div>
-          <div><span class="status-pill" style="background:#F5F3FF;color:#6D28D9"><span class="status-dot" style="background:#7C3AED"></span>Visita técnica</span></div>
-          <div><span style="font-size:12px">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
-        <div class="lista-row">
-          <div><div class="lista-row-name">Empresa TechSul</div><div class="lista-row-sub">450 funcionários</div></div>
-          <div><span class="kcard-tipo tipo-emp">Empresa</span></div>
-          <div>Campinas/SP</div>
-          <div><span class="status-pill" style="background:#FFF7ED;color:#C2410C"><span class="status-dot" style="background:#EA580C"></span>Proposta</span></div>
-          <div><span style="font-size:12px">🟢 Própria</span></div>
-          <div><button class="btn-secondary" style="padding:6px 12px;font-size:12px">Ver</button></div>
-        </div>
+      <div class="lista-wrap">
+        <div class="lista-head"><div>Local</div><div>Tipo</div><div>Cidade</div><div>Etapa</div><div>Origem</div><div></div></div>
+        <div class="lista-row"><div><div class="lr-name">Smart Fit Bonfim</div><div class="lr-sub">Academia</div></div><div><span class="kcard-badge ba">Academia</span></div><div style="font-size:13px;font-weight:600">Campinas/SP</div><div><span class="spill" style="background:#F3F4F6;color:#374151"><span class="sp-dot" style="background:#6B7280"></span>Nova indicação</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
+        <div class="lista-row"><div><div class="lr-name">Cond. Jardim Europa</div><div class="lr-sub">180 apartamentos</div></div><div><span class="kcard-badge bc">Condomínio</span></div><div style="font-size:13px;font-weight:600">Jundiaí/SP</div><div><span class="spill" style="background:#EFF6FF;color:#1D4ED8"><span class="sp-dot" style="background:#2563EB"></span>Tent. contato</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟡 Franqueadora</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
+        <div class="lista-row"><div><div class="lr-name">Indústria Metalbras</div><div class="lr-sub">Empresa industrial</div></div><div><span class="kcard-badge be">Empresa</span></div><div style="font-size:13px;font-weight:600">Sumaré/SP</div><div><span class="spill" style="background:#ECFEFF;color:#0E7490"><span class="sp-dot" style="background:#0891B2"></span>Contato feito</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
+        <div class="lista-row"><div><div class="lr-name">Cond. Parque das Flores</div><div class="lr-sub">280 apartamentos</div></div><div><span class="kcard-badge bc">Condomínio</span></div><div style="font-size:13px;font-weight:600">Campinas/SP</div><div><span class="spill" style="background:#EEF2FF;color:#4338CA"><span class="sp-dot" style="background:#4338CA"></span>1ª conversa</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
+        <div class="lista-row"><div><div class="lr-name">Cond. Solar das Palmeiras</div><div class="lr-sub">320 apartamentos</div></div><div><span class="kcard-badge bc">Condomínio</span></div><div style="font-size:13px;font-weight:600">Valinhos/SP</div><div><span class="spill" style="background:#F5F3FF;color:#6D28D9"><span class="sp-dot" style="background:#7C3AED"></span>Visita técnica</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
+        <div class="lista-row"><div><div class="lr-name">Empresa TechSul</div><div class="lr-sub">450 funcionários</div></div><div><span class="kcard-badge be">Empresa</span></div><div style="font-size:13px;font-weight:600">Campinas/SP</div><div><span class="spill" style="background:#FFF7ED;color:#C2410C"><span class="sp-dot" style="background:#EA580C"></span>Proposta</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
+        <div class="lista-row"><div><div class="lr-name">Cond. Vista Alegre</div><div class="lr-sub">200 aptos · Fechado</div></div><div><span class="kcard-badge bc">Condomínio</span></div><div style="font-size:13px;font-weight:600">Campinas/SP</div><div><span class="spill" style="background:#F0FDF4;color:#15803D"><span class="sp-dot" style="background:#16A34A"></span>✓ Fechado</span></div><div style="font-size:11px;font-weight:600;color:var(--cinza-texto)">🟢 Própria</div><div><button class="btn-secondary" style="padding:5px 10px;font-size:11px">Ver</button></div></div>
       </div>
     </main>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      TELA 5 — LOCAIS DISPONÍVEIS (CARDS)
-═══════════════════════════════════════ -->
+════════════════════════════════════════ -->
 <div id="screen-locais-cards" class="screen">
   <div class="dash-layout">
     <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-franquias" style="background:#FEF9EC;border-color:rgba(201,160,16,0.3)">
-          <div class="sf-label" style="color:var(--amarelo-escuro)">Franquias disponíveis</div>
-          <div class="sf-num" style="color:var(--amarelo-escuro)">0</div>
-          <div class="sf-sub">de 5 contratadas — sem disponível</div>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Menu</div>
-        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
-        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
-        <div class="sidebar-item active"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
-        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      <div class="sb-franquias aviso"><div class="sf-label">Franquias disponíveis</div><div class="sf-num" style="color:#92400E">0</div><div class="sf-sub">de 5 contratadas</div></div>
+      <div class="sb-section">
+        <div class="sb-label">Menu</div>
+        <div class="sb-item" onclick="go('dashboard')"><span class="sb-icon">📊</span> Início</div>
+        <div class="sb-item" onclick="go('kanban')"><span class="sb-icon">📋</span> Meu pipeline <span class="sb-badge">7</span></div>
+        <div class="sb-item active"><span class="sb-icon">📍</span> Locais disponíveis <span class="sb-badge">12</span></div>
+        <div class="sb-item" onclick="go('nova')"><span class="sb-icon">➕</span> Nova indicação</div>
       </div>
     </aside>
     <main class="main-content">
       <div class="page-header">
-        <div>
-          <div class="page-title">Locais disponíveis</div>
-          <div class="page-subtitle">12 oportunidades aguardando franqueados</div>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center">
+        <div><div class="page-title">Locais disponíveis</div><div class="page-sub">12 oportunidades aguardando franqueados</div></div>
+        <div style="display:flex;gap:10px">
           <div class="view-toggle">
             <button class="vt-btn active">⊞ Cards</button>
-            <button class="vt-btn" onclick="showScreen('locais-mapa')">🗺 Mapa</button>
+            <button class="vt-btn" onclick="go('locais-mapa')">🗺 Mapa</button>
           </div>
         </div>
       </div>
 
-      <!-- Alerta sem franquia -->
-      <div style="background:#FEF9EC;border:1px solid rgba(201,160,16,0.4);border-radius:10px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;font-size:14px;">
-        <span style="font-size:18px">⚠️</span>
-        <span><strong>Você não possui franquias disponíveis.</strong> Entre em contato com a franqueadora para adquirir novas unidades e aproveitar as oportunidades abaixo.</span>
+      <div class="alerta">
+        ⚠️ <span><strong>Você não possui franquias disponíveis.</strong> Fale com a franqueadora para adquirir novas unidades e aproveitar as oportunidades abaixo.</span>
       </div>
 
-      <div class="filtros-bar">
-        <div class="filtro-chip active">Todos (12)</div>
-        <div class="filtro-chip">Condomínio (8)</div>
-        <div class="filtro-chip">Empresa (2)</div>
-        <div class="filtro-chip">Academia (1)</div>
-        <div class="filtro-chip">Hospital (1)</div>
+      <div class="filtros">
+        <div class="fchip active">Todos (12)</div>
+        <div class="fchip">Condomínio (8)</div>
+        <div class="fchip">Empresa (2)</div>
+        <div class="fchip">Academia (1)</div>
+        <div class="fchip">Hospital (1)</div>
       </div>
 
       <div class="locais-grid">
-
-        <div class="local-card bloqueado">
-          <div class="local-card-header">
-            <span class="local-tipo-badge tipo-cond">🏢 Condomínio</span>
-            <span style="font-size:11px;color:var(--cinza-texto)">há 2 dias</span>
+        <div class="lcard blocked">
+          <div class="lcard-top"><span class="kcard-badge bc">🏢 Condomínio</span><span style="font-size:10px;color:var(--cinza-texto);font-weight:600">há 2 dias</span></div>
+          <div class="lcard-name">Cond. Crystal Tower</div>
+          <div class="lcard-addr">📍 Av. Brasil, 1200 — Campinas/SP</div>
+          <div class="lcard-info">
+            <div class="lci"><div class="lci-l">Apartamentos</div><div class="lci-v">350</div></div>
+            <div class="lci"><div class="lci-l">Andares</div><div class="lci-v">22</div></div>
+            <div class="lci"><div class="lci-l">Origem</div><div class="lci-v" style="font-size:11px">🟡 Franqueadora</div></div>
           </div>
-          <div class="local-card-name">Cond. Crystal Tower</div>
-          <div class="local-card-endereco">📍 Av. Brasil, 1200 — Campinas/SP</div>
-          <div class="local-card-info">
-            <div class="lci-item"><div class="lci-label">Apartamentos</div><div class="lci-val">350</div></div>
-            <div class="lci-item"><div class="lci-label">Andares</div><div class="lci-val">22</div></div>
-            <div class="lci-item"><div class="lci-label">Origem</div><div class="lci-val">🟡 Franqueadora</div></div>
-          </div>
-          <div class="local-card-footer">
-            <button class="btn-absorver disabled">Sem franquia disponível</button>
-          </div>
+          <div class="lcard-foot"><button class="btn-absorver off">Sem franquia disponível</button></div>
         </div>
-
-        <div class="local-card bloqueado">
-          <div class="local-card-header">
-            <span class="local-tipo-badge tipo-cond">🏢 Condomínio</span>
-            <span style="font-size:11px;color:var(--cinza-texto)">há 5 dias</span>
+        <div class="lcard blocked">
+          <div class="lcard-top"><span class="kcard-badge bc">🏢 Condomínio</span><span style="font-size:10px;color:var(--cinza-texto);font-weight:600">há 5 dias</span></div>
+          <div class="lcard-name">Cond. Reserva do Lago</div>
+          <div class="lcard-addr">📍 R. das Palmeiras, 88 — Valinhos/SP</div>
+          <div class="lcard-info">
+            <div class="lci"><div class="lci-l">Apartamentos</div><div class="lci-v">210</div></div>
+            <div class="lci"><div class="lci-l">Andares</div><div class="lci-v">14</div></div>
+            <div class="lci"><div class="lci-l">Origem</div><div class="lci-v" style="font-size:11px">🟡 Franqueadora</div></div>
           </div>
-          <div class="local-card-name">Cond. Reserva do Lago</div>
-          <div class="local-card-endereco">📍 R. das Palmeiras, 88 — Valinhos/SP</div>
-          <div class="local-card-info">
-            <div class="lci-item"><div class="lci-label">Apartamentos</div><div class="lci-val">210</div></div>
-            <div class="lci-item"><div class="lci-label">Andares</div><div class="lci-val">14</div></div>
-            <div class="lci-item"><div class="lci-label">Origem</div><div class="lci-val">🟡 Franqueadora</div></div>
-          </div>
-          <div class="local-card-footer">
-            <button class="btn-absorver disabled">Sem franquia disponível</button>
-          </div>
+          <div class="lcard-foot"><button class="btn-absorver off">Sem franquia disponível</button></div>
         </div>
-
-        <div class="local-card bloqueado">
-          <div class="local-card-header">
-            <span class="local-tipo-badge tipo-emp">🏭 Empresa</span>
-            <span style="font-size:11px;color:var(--cinza-texto)">há 1 semana</span>
+        <div class="lcard blocked">
+          <div class="lcard-top"><span class="kcard-badge be">🏭 Empresa</span><span style="font-size:10px;color:var(--cinza-texto);font-weight:600">há 1 semana</span></div>
+          <div class="lcard-name">Escritório Central BRF</div>
+          <div class="lcard-addr">📍 Av. Paulista, 900 — São Paulo/SP</div>
+          <div class="lcard-info">
+            <div class="lci"><div class="lci-l">Funcionários</div><div class="lci-v">600+</div></div>
+            <div class="lci"><div class="lci-l">Andares</div><div class="lci-v">8</div></div>
+            <div class="lci"><div class="lci-l">Origem</div><div class="lci-v" style="font-size:11px">🟡 Franqueadora</div></div>
           </div>
-          <div class="local-card-name">Escritório Central BRF</div>
-          <div class="local-card-endereco">📍 Av. Paulista, 900 — São Paulo/SP</div>
-          <div class="local-card-info">
-            <div class="lci-item"><div class="lci-label">Funcionários</div><div class="lci-val">600+</div></div>
-            <div class="lci-item"><div class="lci-label">Andares</div><div class="lci-val">8</div></div>
-            <div class="lci-item"><div class="lci-label">Origem</div><div class="lci-val">🟡 Franqueadora</div></div>
-          </div>
-          <div class="local-card-footer">
-            <button class="btn-absorver disabled">Sem franquia disponível</button>
-          </div>
+          <div class="lcard-foot"><button class="btn-absorver off">Sem franquia disponível</button></div>
         </div>
-
       </div>
     </main>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      TELA 6 — LOCAIS DISPONÍVEIS (MAPA)
-═══════════════════════════════════════ -->
+════════════════════════════════════════ -->
 <div id="screen-locais-mapa" class="screen">
   <div class="dash-layout">
     <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-franquias">
-          <div class="sf-label">Franquias disponíveis</div>
-          <div class="sf-num">2</div>
-          <div class="sf-sub">de 5 contratadas</div>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Menu</div>
-        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
-        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
-        <div class="sidebar-item active"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
-        <div class="sidebar-item" onclick="showScreen('nova-indicacao')"><span class="icon">➕</span> Nova indicação</div>
+      <div class="sb-franquias"><div class="sf-label">Franquias disponíveis</div><div class="sf-num">2</div><div class="sf-sub">de 5 contratadas</div></div>
+      <div class="sb-section">
+        <div class="sb-label">Menu</div>
+        <div class="sb-item" onclick="go('dashboard')"><span class="sb-icon">📊</span> Início</div>
+        <div class="sb-item" onclick="go('kanban')"><span class="sb-icon">📋</span> Meu pipeline <span class="sb-badge">7</span></div>
+        <div class="sb-item active"><span class="sb-icon">📍</span> Locais disponíveis <span class="sb-badge">12</span></div>
+        <div class="sb-item" onclick="go('nova')"><span class="sb-icon">➕</span> Nova indicação</div>
       </div>
     </aside>
     <main class="main-content">
       <div class="page-header">
-        <div>
-          <div class="page-title">Locais disponíveis</div>
-          <div class="page-subtitle">12 oportunidades no mapa</div>
-        </div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <div class="view-toggle">
-            <button class="vt-btn" onclick="showScreen('locais-cards')">⊞ Cards</button>
-            <button class="vt-btn active">🗺 Mapa</button>
-          </div>
+        <div><div class="page-title">Locais disponíveis</div><div class="page-sub">12 oportunidades no mapa</div></div>
+        <div class="view-toggle">
+          <button class="vt-btn" onclick="go('locais-cards')">⊞ Cards</button>
+          <button class="vt-btn active">🗺 Mapa</button>
         </div>
       </div>
-      <div class="mapa-placeholder">
-        <div class="mapa-grid"></div>
-        <div class="mapa-pins">
-          <div class="mapa-pin" style="left:38%;top:28%"><div class="mapa-pin-bubble">Crystal Tower · 350 aptos</div></div>
-          <div class="mapa-pin" style="left:22%;top:42%"><div class="mapa-pin-bubble">Reserva do Lago · 210 aptos</div></div>
-          <div class="mapa-pin amarelo" style="left:58%;top:35%"><div class="mapa-pin-bubble amarelo">BRF Escritório · Empresa</div></div>
-          <div class="mapa-pin" style="left:48%;top:55%"><div class="mapa-pin-bubble">Cond. São Lucas · 180 aptos</div></div>
-          <div class="mapa-pin amarelo" style="left:30%;top:65%"><div class="mapa-pin-bubble amarelo">Hospital Unimed · Hospital</div></div>
-          <div class="mapa-pin" style="left:65%;top:60%"><div class="mapa-pin-bubble">Cond. Bela Vista · 95 aptos</div></div>
-        </div>
-        <div class="mapa-overlay-label">
-          🗺 Visualização integrada com Google Maps na versão final
-        </div>
+      <div class="mapa-box">
+        <div class="mapa-grid-bg"></div>
+        <div class="mapa-pin" style="left:37%;top:25%"><div class="mapa-bubble">Crystal Tower · 350 aptos</div></div>
+        <div class="mapa-pin" style="left:21%;top:40%"><div class="mapa-bubble">Reserva do Lago · 210 aptos</div></div>
+        <div class="mapa-pin am" style="left:57%;top:33%"><div class="mapa-bubble am">BRF Escritório · Empresa</div></div>
+        <div class="mapa-pin" style="left:47%;top:53%"><div class="mapa-bubble">Cond. São Lucas · 180 aptos</div></div>
+        <div class="mapa-pin am" style="left:29%;top:63%"><div class="mapa-bubble am">Hospital Unimed</div></div>
+        <div class="mapa-pin" style="left:64%;top:58%"><div class="mapa-bubble">Cond. Bela Vista · 95 aptos</div></div>
+        <div class="mapa-center">🗺 Integração Google Maps na versão final</div>
       </div>
-      <div style="display:flex;gap:8px;margin-top:12px;font-size:12px;color:var(--cinza-texto);align-items:center">
-        <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:var(--verde);display:inline-block"></span> Condomínio / outro</span>
-        <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:var(--amarelo-escuro);display:inline-block"></span> Empresa / hospital</span>
-        <span style="margin-left:auto">Clique no pin para ver detalhes e absorver</span>
+      <div class="mapa-legend">
+        <div class="mapa-leg-item"><div class="mapa-leg-dot" style="background:var(--verde-primary)"></div> Condomínio / outros</div>
+        <div class="mapa-leg-item"><div class="mapa-leg-dot" style="background:#B45309"></div> Empresa / hospital</div>
+        <span style="margin-left:auto;font-size:11px">Clique no pin para detalhes e absorver</span>
       </div>
     </main>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- ════════════════════════════════════════
      TELA 7 — NOVA INDICAÇÃO
-═══════════════════════════════════════ -->
-<div id="screen-nova-indicacao" class="screen">
+════════════════════════════════════════ -->
+<div id="screen-nova" class="screen">
   <div class="dash-layout">
     <aside class="sidebar">
-      <div class="sidebar-section">
-        <div class="sidebar-franquias">
-          <div class="sf-label">Franquias disponíveis</div>
-          <div class="sf-num">2</div>
-          <div class="sf-sub">de 5 contratadas</div>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="sidebar-label">Menu</div>
-        <div class="sidebar-item" onclick="showScreen('dashboard')"><span class="icon">📊</span> Início</div>
-        <div class="sidebar-item" onclick="showScreen('pipeline-kanban')"><span class="icon">📋</span> Meu pipeline <span class="sidebar-badge">7</span></div>
-        <div class="sidebar-item" onclick="showScreen('locais-cards')"><span class="icon">📍</span> Locais disponíveis <span class="sidebar-badge">12</span></div>
-        <div class="sidebar-item active"><span class="icon">➕</span> Nova indicação</div>
+      <div class="sb-franquias"><div class="sf-label">Franquias disponíveis</div><div class="sf-num">2</div><div class="sf-sub">de 5 contratadas</div></div>
+      <div class="sb-section">
+        <div class="sb-label">Menu</div>
+        <div class="sb-item" onclick="go('dashboard')"><span class="sb-icon">📊</span> Início</div>
+        <div class="sb-item" onclick="go('kanban')"><span class="sb-icon">📋</span> Meu pipeline <span class="sb-badge">7</span></div>
+        <div class="sb-item" onclick="go('locais-cards')"><span class="sb-icon">📍</span> Locais disponíveis <span class="sb-badge">12</span></div>
+        <div class="sb-item active"><span class="sb-icon">➕</span> Nova indicação</div>
       </div>
     </aside>
     <main class="main-content">
       <div class="page-header">
-        <div>
-          <div class="page-title">Nova indicação</div>
-          <div class="page-subtitle">Preencha os dados do local que deseja indicar</div>
-        </div>
+        <div><div class="page-title">Nova indicação</div><div class="page-sub">Preencha os dados do local que deseja indicar</div></div>
+      </div>
+
+      <!-- Barra de progresso -->
+      <div class="form-progress" style="max-width:660px;margin-bottom:20px">
+        <div class="fp-step done"><div class="fp-num">✓</div> Tipo</div>
+        <div class="fp-step active"><div class="fp-num">2</div> Dados do local</div>
+        <div class="fp-step"><div class="fp-num">3</div> Endereço</div>
+        <div class="fp-step"><div class="fp-num">4</div> Revisão</div>
       </div>
 
       <div class="form-card">
-        <div class="form-section-title">Tipo de local</div>
-        <div class="tipo-selector">
-          <div class="tipo-opt selected">
-            <div class="tipo-opt-icon">🏢</div>
-            Condomínio
-          </div>
-          <div class="tipo-opt">
-            <div class="tipo-opt-icon">🏭</div>
-            Empresa
-          </div>
-          <div class="tipo-opt">
-            <div class="tipo-opt-icon">🏋️</div>
-            Academia
-          </div>
-          <div class="tipo-opt">
-            <div class="tipo-opt-icon">🏥</div>
-            Hospital
-          </div>
-          <div class="tipo-opt">
-            <div class="tipo-opt-icon">📦</div>
-            Outros
-          </div>
+        <div class="form-sec">🏢 Tipo de local</div>
+        <div class="tipo-sel">
+          <div class="tipo-opt sel"><div class="tipo-opt-ic">🏢</div>Condomínio</div>
+          <div class="tipo-opt"><div class="tipo-opt-ic">🏭</div>Empresa</div>
+          <div class="tipo-opt"><div class="tipo-opt-ic">🏋️</div>Academia</div>
+          <div class="tipo-opt"><div class="tipo-opt-ic">🏥</div>Hospital</div>
+          <div class="tipo-opt"><div class="tipo-opt-ic">📦</div>Outros</div>
         </div>
 
-        <div class="form-section-title">Contato do local</div>
-        <div class="form-group-mb">
+        <div class="form-sec">👤 Contato do local</div>
+        <div class="fgmb">
           <label class="form-label">Nome do responsável / contato</label>
           <input class="form-input" type="text" placeholder="Ex: João Silva — síndico">
         </div>
@@ -1537,40 +1326,31 @@
           </div>
           <div>
             <label class="form-label">CEP</label>
-            <input class="form-input" type="text" placeholder="13000-000" id="cep-input">
+            <input class="form-input" type="text" placeholder="13000-000">
           </div>
         </div>
 
-        <div class="form-section-title">Endereço <span style="font-size:11px;color:var(--cinza-texto);font-weight:400;text-transform:none;letter-spacing:0">— preenchido automaticamente via CEP</span></div>
-        <div class="form-group-mb">
+        <div class="form-sec">📍 Endereço <span style="font-size:10px;color:var(--cinza-texto);font-weight:500;text-transform:none;letter-spacing:0">— preenchido automaticamente via CEP</span></div>
+        <div class="fgmb">
           <label class="form-label">Logradouro</label>
           <input class="form-input" type="text" placeholder="Rua / Avenida" value="Av. Barão de Itapura">
         </div>
-        <div class="form-row-3">
-          <div>
-            <label class="form-label">Número</label>
-            <input class="form-input" type="text" placeholder="Ex: 1234">
-          </div>
-          <div>
-            <label class="form-label">Bairro</label>
-            <input class="form-input" type="text" value="Cambuí">
-          </div>
-          <div>
-            <label class="form-label">Cidade/UF</label>
-            <input class="form-input" type="text" value="Campinas/SP">
-          </div>
+        <div class="form-row3">
+          <div><label class="form-label">Número</label><input class="form-input" type="text" placeholder="Ex: 1234"></div>
+          <div><label class="form-label">Bairro</label><input class="form-input" type="text" value="Cambuí"></div>
+          <div><label class="form-label">Cidade/UF</label><input class="form-input" type="text" value="Campinas/SP"></div>
         </div>
 
         <!-- Campo extra condomínio -->
         <div class="campo-extra">
-          <strong>📋 Campo obrigatório para Condomínio</strong>
+          <strong>📋 Campo obrigatório — Condomínio</strong>
           <label class="form-label">Quantidade de apartamentos</label>
-          <input class="form-input" type="number" placeholder="Ex: 200" style="background:white">
+          <input class="form-input" type="number" placeholder="Ex: 200" style="background:white;max-width:240px">
         </div>
 
         <div class="btn-row">
-          <button class="btn-secondary" onclick="showScreen('dashboard')">Cancelar</button>
-          <button class="btn-primary">Enviar indicação →</button>
+          <button class="btn-secondary" onclick="go('dashboard')">Cancelar</button>
+          <button class="btn-primary">Próximo →</button>
         </div>
       </div>
     </main>
@@ -1578,33 +1358,41 @@
 </div>
 
 <script>
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('screen-' + id).classList.add('active');
-  const tabs = {
-    'login': 0, 'dashboard': 1, 'pipeline-kanban': 2, 'pipeline-lista': 3,
-    'locais-cards': 4, 'locais-mapa': 5, 'nova-indicacao': 6
+  const screens = {
+    'welcome':      0,
+    'login':        1,
+    'dashboard':    2,
+    'kanban':       3,
+    'lista':        4,
+    'locais-cards': 5,
+    'locais-mapa':  6,
+    'nova':         7
   };
-  document.querySelectorAll('.nav-tab')[tabs[id]]?.classList.add('active');
-  window.scrollTo(0, 0);
-}
 
-// Tipo de local selector
-document.querySelectorAll('.tipo-opt').forEach(opt => {
-  opt.addEventListener('click', function() {
-    document.querySelectorAll('.tipo-opt').forEach(o => o.classList.remove('selected'));
-    this.classList.add('selected');
-  });
-});
+  function go(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('screen-' + id).classList.add('active');
+    const tabs = document.querySelectorAll('.nav-tab');
+    if (tabs[screens[id]]) tabs[screens[id]].classList.add('active');
+    window.scrollTo(0, 0);
+  }
 
-// Filtros
-document.querySelectorAll('.filtro-chip').forEach(chip => {
-  chip.addEventListener('click', function() {
-    document.querySelectorAll('.filtro-chip').forEach(c => c.classList.remove('active'));
-    this.classList.add('active');
+  // Tipo selector
+  document.querySelectorAll('.tipo-opt').forEach(opt => {
+    opt.addEventListener('click', function() {
+      document.querySelectorAll('.tipo-opt').forEach(o => o.classList.remove('sel'));
+      this.classList.add('sel');
+    });
   });
-});
+
+  // Filtros
+  document.querySelectorAll('.fchip').forEach(c => {
+    c.addEventListener('click', function() {
+      document.querySelectorAll('.fchip').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>
